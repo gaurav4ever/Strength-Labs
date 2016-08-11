@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="autdor" content="">
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+   <style type="text/css">
+    .no-js #loader { display: none;  }
+    .js #loader { display: block; position: absolute; left: 100px; top: 0; }
+    .se-pre-con {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url(../static/img/loading.gif) center no-repeat #fff;
+    }
+    </style>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">dytila</a>
+            </div>
+            <!-- Collect tde nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">E-mail:  dytila_vit@gmail.com</a></li>
+                    {% if result['loggedIn'] %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{
+                      result['user']['full_name']+" "+result['user']['last_name']}}<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/recent_orders">Your orders</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a href="/chat_with_dietitian">Chat with Dietician</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                    {% end %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!--End Navigation -->
+
+    <div class="content cart_content">
+    <div class="row">
+        <h2 class="text-center">Your Cart Items</h2>
+    </div>
+    {% if cart==0 %}
+    <div class="empty">
+        <h1 class="text-center">It's Lonley Here :(</h1>
+        <br><br><center>
+        <img src="../static/img/lonley.png" style="width:250px;height:250px;">
+        </center>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="cart_table">
+                    <table class="head_table">
+                    
+                        <tr>
+                            <td class="food_name">ITEM</td>
+                            <td class="food_price">PRICE</td>
+                            <td class="food_quantity">QUANTITY</td>
+                            <td class="food_price_total">SUBTOTAL</td>
+                        </tr>
+                    </table>
+                    <div class="table_body">
+                        <table>
+                            {% for item in finalcart %}
+                            <tr>
+                                <td class="food_name">{{ finalcart[item]['Details']['food_name'] }}</td>
+                                <td class="food_price">{{ finalcart[item]['Details']['price'] }}</td>
+                                <td class="food_quantity">
+                                    <input type="hidden" name="id" value="{{ item }}">
+                                    <input type="number" min="1" id="{{ item }}_q" class="quantity" value="{{ finalcart[item]['Quantity'] }}" name="item_quantity" onchange="change_value(this)" data-lastvalue="{{ finalcart[item]['Quantity'] }}">
+                                </td>
+                                <td class="food_price_total">
+                                    <input type="text" id="{{ item }}_td" value="{{ price[item]['final_price'] }}" disabled>
+                                </td>
+                            </tr>
+                             {% end %}
+                    </table>
+                    </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+             <div class="row cart_price">
+            <div class="row">
+                <div class="form-group">
+                  <label for="coupon">Have coupon Code ?</label>
+                  <form action="/cart/coupon_code" method="post">
+                  <input type="text" class="form-control" name="coupon" id="coupon" placeholder="enter coupon code">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" id="#coupon_msg">
+                    <h4 class="applied" style="margin:0;padding:0;">coupon Applied!</h4>
+                    <h4 class="invalid" style="margin:0;padding:0;">Invalid coupon!</h4>
+                    <h4 class="expired" style="margin:0;padding:0;">coupon Expired!</h4>
+                </div>
+                <div class="col-md-6">
+                    <input type="submit" class="btn btn-info pull-right" style="width:70px;" id="button" value="Apply">
+                    </form>
+                </div>
+            </div>
+            <form method="post" action="/orders">
+            <hr class="divider" style="margin-top:10px;margin-bottom:10px;">
+             <div class="row" style="margin:20px;">
+                <table id="price_table">
+                    <tr>
+                        <td><label>Total : </label></td>
+                        <td id="total_price"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Discount : </label></td>
+                        <td id="discount_percentage"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Dytila Point : </label></td>
+                        <td id="dp">{{ dp }}</td>
+                    </tr>
+                </table>
+                <!-- <label style="margin-right:20px;">Total : </label><p ></p>
+                <label style="margin-right:20px;">Discount : </label><span>20%</span> -->
+            </div>
+            <div class="row">
+                <div class="form-group">
+                  <label for="subtotal">Subtotal :</label>
+                  <input type="text" class="form-control" id="subtotal" value="" >
+                </div>
+            </div>
+            <hr class="divider" style="margin-top:10px;margin-bottom:10px;">
+            <div class="row">
+                <label>Payment option : </label><br>
+                <input type="radio" name="payment_option" id="cod">Cash On Delivery
+                <input type="radio" name="payment_option" id="op">Online Payment
+                <!-- <a class="btn btn-default pull-left" data-toggle="modal" data-target="#log" name="cod">Cash On Delivery</a>
+                <a class="btn btn-default pull-right" data-toggle="modal" data-target="#log" name="op">Online Payment</a> -->
+            </div><br><br>
+            <div class="row">
+            <center>
+                <input type="submit" class="btn btn-success pull-right" id="button" data-toggle="modal" data-target="#log" value="Order Now">
+                </center>
+            </div>
+            </form>
+        </div>
+    </div>
+        </div>
+        {% end %}
+    </div>
+     <!--footer Section -->
+    <div class="for-full-back" id="footer">
+        <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>
+         
+    </div>
+    <!--End footer Section -->
+  
+    <!-- JAVASCRIPT FILES PLACED AT tdE BOTTOM TO REDUCE tdE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="static/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="static/plugins/bootstrap.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.quantity').bind('keyup mouseup',function(){
+            var food_id = $(tdis).attr('id');
+            var food_qty = $(tdis).val();
+            
+        });
+    });
+    </script>
+    <script type="text/javascript">
+        function change_value(x){
+            old = $(x).data('lastvalue')
+            decreased = x.value < old;
+            $(x).data('lastvalue', x.value);
+            x = x.id;
+            val = $('#'+x).val();
+            cost = $('#'+x.substring(0,x.lengtd-2)+'_td').val();
+            unit = parseInt(cost)/(parseInt(old));
+            $('#'+x.substring(0,x.lengtd-2)+'_td').val(unit*parseInt(val));
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // var sum=0;
+            // {% for item in finalcart %}
+            //     sum+=parseInt(document.getElementById('{{ item }}_td').value);
+            // {% end %}
+            
+            var p={{total_price}};
+            document.getElementById("total_price").innerHTML=p;
+            document.getElementById("subtotal").value=p;
+            $("#discount_percentage").html('0%');
+
+            if(window.location.href.indexOf("applied") > -1) 
+            {
+                $(".applied").fadeIn(500);
+                var x=window.location.href;
+                var left;
+                var d='';
+                for (var i = 0; i < x.length; i++) {
+                    if(x[i]=='_'){
+                        left=x.length-i-1;
+                        for (var j = i+1; j < x.length; j++) {
+                            d+=x[j];
+                        }
+                        break;
+                    }
+                }
+                var discount=parseInt(d);
+                $("#discount_percentage").html(d+"%");
+                 var sum={{total_price}};
+                // {% for item in finalcart %}
+                //     sum+=parseInt(document.getElementById('{{ item }}_td').value);
+                // {% end %}
+                var subtotal;
+                subtotal=sum-(sum*(discount/100));
+                subtotal
+                document.getElementById("subtotal").value=subtotal;
+            }
+            else if(window.location.href.indexOf("invalid") > -1) 
+            {
+                $(".invalid").fadeIn(500);
+            }
+            else if(window.location.href.indexOf("expired") > -1) 
+            {
+                $(".expired").fadeIn(500);
+            }
+            else{
+                
+            }
+        });
+    </script>
+</body>
+</html>

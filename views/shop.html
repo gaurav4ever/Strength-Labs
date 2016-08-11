@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">dytila</a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                      <a href="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"
+                      style="margin-left:20px;margin-right:20px;"></span></a>
+                    </li>
+                    {% if result['loggedIn'] %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/recent_orders">Your orders</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                    {% end %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!--End Navigation -->
+    <section class="food_shop" id="shop">
+        <div class="shop_content">
+            <h1 class="text-center">Choose your food type</h1>
+            
+            <div class="row food_type" style="margin:auto;">
+              <div class="col-md-3">
+              <center>
+                <div class="animation">
+                  <img src="static/img/vf1.png" style="height:45px;width:45px" id="veg_food_icon" />
+                </div>
+                <div class="food_text" id="veg">
+                  <a class="btn btn-success btn-lg" id="veg_food_button" href="#veg_food">Veg Food </a>  
+                </div>
+
+              </div>
+              <div class="col-md-3">
+                <div class="animation">
+                  <img src="static/img/ai2.jpg" style="height:45px;width:45px" id="veg_food_egg_icon"/>
+                </div>
+                <div class="food_text" id="veg_egg">
+                  <a class="btn btn-success btn-lg" id="veg_food_egg_button" href="#veg_food_egg">Veg & Egg</a>      
+                </div>
+                
+              </div>
+              <div class="col-md-3">
+                <div class="animation">
+                  <img src="static/img/nvf1.png" style="height:45px;width:45px" id="non_veg_food_icon"/>
+                </div>
+                <div class="food_text" id="non_veg">
+                  <a class="btn btn-danger btn-lg" id="non_veg_food" href="#nveg_food">Non-Veg</a>  
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="animation">
+                  <img src="static/img/ai2.jpg" style="height:45px;width:45px" id="smoothies_icon"/>
+                </div>
+                <div class="food_text" id="smoothies">
+                  <a class="btn btn-success btn-lg" id="food_smoothies" href="#smoothies_shakes">Smoothies </a>        
+                </div>
+              </div>
+            </div>
+          
+            <hr class="divider" style="margin-top:60px;margin-bottom:60px;">
+
+
+
+            <!--Vegertarian food Section -->
+                <section class="veg_food" id="veg_food">
+                <h1 class="text-center">Vegetarian Food </h1>
+                <div id="content_wrapper">
+                    <div class="row">
+                    {% for food in vegfood %}
+                          <div class="col-sm-3 col-md-3">
+                            <div class="thumbnail item">
+                              <a href="/readmore?id={{ food['_id'] }}"><img src="static/img/veg food/{{ food['img name']}}" alt="item" />
+                               <a href="/readmore?id={{ food['_id'] }}" class="product_links"><h4>{{ food['food_name'] }}</h4></a>
+                              <a class="btn btn-primary add-to-cart" id="{{ food['_id'] }}" type="button">Add to cart</a>
+                              <a href="/readmore?id={{ food['_id'] }}" class="btn btn-default pull-right" role="button" id="read_more">Read More</a>
+                              </div>
+                          </div>
+
+                    {% end %}  
+                    </div>
+                </div>                  
+                </section>
+            <!--End Vegertarian food Section -->
+
+              <hr class="divider fixed" style="margin-top:60px;margin-bottom:60px;">
+
+            <!--Vegertarian with egg food Section -->
+                <section class="veg_food_egg" id="veg_food_egg">
+                <h1 class="text-center">Vegetarian Food with Egg</h1>
+                <div id="content_wrapper">
+                    <div class="row">
+                    {% for food in vegeggfood %}
+                          <div class="col-sm-3 col-md-3">
+                            <div class="thumbnail item">
+                              <a href="/readmore?id={{ food['_id'] }}"><img src="static/img/veg food egg/{{ food['img name']}}" alt="item" />
+                               <a href="/readmore?id={{ food['_id'] }}" class="product_links"><h4>{{ food['food_name'] }}</h4></a>
+                              <a class="btn btn-primary add-to-cart" id="{{ food['_id'] }}" type="button">Add to cart</a>
+                              <a href="/readmore?id={{ food['_id'] }}" class="btn btn-default pull-right" role="button" id="read_more">Read More</a>
+                              </div>
+                          </div>
+                    {% end %}
+                    </div>
+                </div>
+                </section>
+            <!--End Vegertarian with egg food Section -->
+
+            <hr class="divider" style="margin-top:60px;margin-bottom:60px;">
+
+            <!--Non-Vegertarian food Section -->
+            <section class="nveg_food" id="nveg_food"> 
+                <h1 class="text-center">Non-Vegetarian Food </h1>
+                <div id="content_wrapper">
+                    <div class="row">
+                    {% for food in nonvegfood %}
+                          <div class="col-sm-3 col-md-3">
+                          <div class="thumbnail item">
+                            <a href="/readmore?id={{ food['_id'] }}"><img src="static/img/non veg food/{{ food['img name'] }}" alt="p1" ></a>
+                            
+                              <a href="/readmore?id={{ food['_id'] }}" class="product_links"><h4>{{ food['food_name'] }}</h4></a>
+                              
+                              <a class="btn btn-primary add-to-cart" id="{{ food['_id'] }}" type="button">Add to cart</a>
+                              <a href="/readmore?id={{ food['_id'] }}" class="btn btn-default pull-right" role="button" id="read_more">Read More</a>
+                            
+                          </div>
+                          </div>
+                    {% end %}
+                          
+                    </div>
+                </div>
+            </section>
+
+            <!--End Non-Vegertarian food Section -->
+
+            <hr class="divider" style="margin-top:60px;margin-bottom:60px;">
+
+             <!--Smoothies Section -->
+            <section class="smoothies_shakes" id="smoothies_shakes"> 
+                <h1 class="text-center">Smoothies</h1>
+                <div id="content_wrapper">
+                   <div class="row">
+                    {% for food in smoothies %}
+                          <div class="col-sm-3 col-md-3">
+                          <div class="thumbnail item">
+                            <a href="/readmore?id={{ food['_id'] }}"><img src="static/img/smoothies/{{ food['img name'] }}" alt="p1" ></a>
+                            
+                              <a href="/readmore?id={{ food['_id'] }}" class="product_links"><h4>{{ food['food_name'] }}</h4></a>
+                              
+                              <a class="btn btn-primary add-to-cart" id="{{ food['_id'] }}" type="button">Add to cart</a> <a href="/readmore?id={{ food['_id'] }}" class="btn btn-default pull-right" role="button" id="read_more">Read More</a>
+                            
+                          </div>
+                          </div>
+                    {% end %}
+                          
+                          
+                    </div>
+                </div>
+            </section>
+
+            <!--End Smoothies Section -->          
+
+        </div>    
+    </section>
+    
+    <!--footer Section -->
+    <div class="footer">
+            <div class="container footcontainer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Products</h4>
+                            <li><a href="#">Meals</a></li>
+                            <li><a href="#">Combos</a></li>
+                            <li><a href="#">Shakes and Smoothies</a></li>
+                            <li><a href="#">Desserts</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>About</h4>
+                            <li><a href="jandi.html">About Dytila</a></li>
+                            <li><a href="#">Personal Plans</a></li>
+                            <li><a href="#">Benefits and dytila</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Customer Support</h4>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Our dieticians</a></li>
+                            <li><a href="#">general inquiries</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <h4 class="sc">Stay connected</h4>
+                            <form class="scform">
+                                <input type="text" value="Enter your email" onfocus="this.value='';" onblur="if(this.value==''){this.value='Enter your email';}">
+                                <input type="submit" name="submit">
+                            </form>
+                        
+                    </div>
+                    
+                </div>
+                <div class="row">
+                  <div class="col-md-4 pull-right">
+                      <h4 style="margin:10px;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>    
+                  </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    <!--End footer Section -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+
+    <!-- CORE JQUERY  -->
+    <script src="static/plugins/jquery-1.12.1.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="static/plugins/bootstrap.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://arrow.scrolltotop.com/arrow27.js"></script>
+    <script src='static/plugins/jquery-ui.min.js'></script>
+    <script src='static/js/fly_to_cart.js'></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="static/js/custom.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //add to cart ajax
+        $('.add-to-cart').click(function(){
+          var food_id = $(this).attr('id');
+          $.ajax({
+            url:'/addtocart',
+            method:'POST',
+            data:{
+              food_id: food_id
+            }
+          });
+        });
+
+
+
+          $("#veg_food_button").mouseenter(function(){
+            $("#veg_food_icon").attr("src","static/img/vf2.png").fadeIn(500);
+          });
+          $("#veg_food_button").mouseleave(function(){
+            $("#veg_food_icon").attr("src","static/img/vf1.png");
+          });
+
+          $("#veg_food_egg_button").mouseenter(function(){
+            $("#veg_food_egg_icon").attr("src","static/img/ai1.jpg");
+          });
+          $("#veg_food_egg_button").mouseleave(function(){
+            $("#veg_food_egg_icon").attr("src","static/img/ai2.jpg");
+          });
+
+          $("#non_veg_food").mouseenter(function(){
+            $("#non_veg_food_icon").attr("src","static/img/nvf2.png").fadeIn(500);
+          });
+          $("#non_veg_food").mouseleave(function(){
+            $("#non_veg_food_icon").attr("src","static/img/nvf1.png");
+          });
+
+          $("#food_smoothies").mouseenter(function(){
+            $("#smoothies_icon").attr("src","static/img/ai1.jpg").fadeIn(500);
+          });
+          $("#food_smoothies").mouseleave(function(){
+            $("#smoothies_icon").attr("src","static/img/ai2.jpg");
+          });
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="../static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+        body{
+            background-color: #FCDFFF;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div id="navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-left:0;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">dytila</a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if result['loggedIn'] %}
+                            <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
+                              <ul class="dropdown-menu" id="dropdown-menu">
+                                <li><a href="/viewOrders">View Orders</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="/auth/logout">Logout</a></li>
+                              </ul>
+                            </li>
+                    {% end %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    </div>
+    <!--End Navigation -->
+
+    <div class="content admin">
+    <div class="admin_wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            
+                     <h2 class="text-center">Admin Section</h2>
+                     
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2" style="margin:10px;">
+            <!--Sidebar-->
+                <div id="sidebar-wrapper">
+                    <ul class="options">
+                        <li><a href="">Pending Orders</a></li>
+                    </ul>
+                </div>
+                <!--End Sidebar-->
+        </div>
+        <div class="col-md-9 col-sm-9">
+            <div class="content_main">
+                     <div class="row">
+                         <div class="col-md-12">
+                             <p>
+                                 Cash on Delivery is available as a payment method for all items Fulfilled by Amazon, Prime Eligible and some seller fulfilled items. Eligible items will be indicated by the message "Eligible for Cash on Delivery" on the product details page.
+                            You can pay for Cash on Delivery orders by cash at all locations and by Credit/Debit card in select locations. Please check with the delivery associate if you can pay by card. We accept Visa, MasterCard, Maestro and Rupay debit and credit cards from all banks.</p>
+
+                            <p>Cash on Delivery cannot be used in conjunction with the gift card balance as a payment mode. If you deselect gift card balance as a payment mode, Cash On Delivery may become available as a payment mode, provided the item and pin code are eligible.
+                            There are no extra charges for Cash on Delivery. We only collect the amount printed on the invoice.</p>
+
+                         </div>
+                     </div>
+            </div>
+        </div>
+    </div>
+    </div>     
+
+       </div>
+    
+    
+    <!--End Contact Section -->
+    
+    <!--footer Section -->
+    <div class="for-full-back" id="footer">
+        <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>
+         
+    </div>
+    <!--End footer Section -->
+    
+    <!-- CORE JQUERY  -->
+    <script src="../static/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="../static/plugins/bootstrap.js"></script>
+
+</body>
+</html>

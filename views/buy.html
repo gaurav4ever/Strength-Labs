@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <style type="text/css">
+        .content{
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">dytila</a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>E-mail: </strong> dytila_vit@gmail.com</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Name<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile.html">Profile</a></li>
+                        <li><a href="/recent_orders">Your orders</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a href="#">Chat with Dietician</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!--End Navigation -->
+
+    <div class="content">
+        <h1 class="text-center">Buy Now</h1>
+        <div class="buy_orders">
+        <label>SMS Confimation Number : +91 <input type="text" name="mobile_number" id="mobile number"></label>
+        <div class="orders">
+            <div class="row order">
+                    <div class=" row main_detail">
+                        <div class="col-md-4">
+                            <h4 class="order_name">Food details</h4>
+                        </div>
+                        <div class="col-md-3 ">
+                            <h4 class="order_id_number">Order ID </h4>
+                            
+                        </div>
+                        <div class="col-md-3">
+                            <h4 class="order_del_address">Delivery address</h4>
+                            
+                        </div>
+                        <div class="col-md-2">
+                            <h4 class="order_price">Total Price</h4>
+                        </div>
+                    </div>
+                    <div class="row order_details">
+                        <div class="col-md-4">
+                            <div class="order_img">
+                                <img src="static/img/thumb253.jpg" class="order_pic">
+                            </div>
+                            <div class="order_img_detail">
+                                <p>
+                                    name and details here 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            order id here
+                        </div>
+                        <div class="col-md-3">
+                            Delivery address here
+                        </div>
+                        <div class="col-md-2">
+                            price here
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row payment_and_buy">
+            <div class="col-md-3">
+            <label>Payment options : </label>
+                <select>
+                    <option>Cash on delivery</option>
+                    <option>Card payment</option>
+                    <option>Net Banking</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <a href="#" class="btn btn-primary" role="button">Buy Now</a>        
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--footer Section -->
+    <div class="footer">
+            <div class="container footcontainer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Products</h4>
+                            <li><a href="#">Supplements</a></li>
+                            <li><a href="#">Gym gears</a></li>
+                            <li><a href="#">Nutrition</a></li>
+                            <li><a href="#">Motivation</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>About</h4>
+                            <li><a href="jandi.html">Get a Diet Chart</a></li>
+                            <li><a href="#">BodyBuilding</a></li>
+                            <li><a href="#">calisthenics</a></li>
+                            <li><a href="#">Catalog Request/Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Customer Support</h4>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Workout Plans</a></li>
+                            <li><a href="#">30 Day challenges</a></li>
+                            <li><a href="#">Get to Store</a></li>
+                            <li><a href="#">Send your condition</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <h4 class="sc">Stay connected</h4>
+                            <form class="scform">
+                                <input type="text" value="Enter your email" onfocus="this.value='';" onblur="if(this.value==''){this.value='Enter your email';}">
+                                <input type="submit" name="submit">
+                            </form>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    <!--End footer Section -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="static/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="static/plugins/bootstrap.js"></script>
+
+</body>
+</html>

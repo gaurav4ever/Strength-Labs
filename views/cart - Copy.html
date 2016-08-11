@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">dytila</a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><strong>E-mail: </strong> dytila_vit@gmail.com</a></li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Your Name<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile.html">Profile</a></li>
+                        <li><a href="/recent_orders">Your orders</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a href="#">Chat with Dietician</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!--End Navigation -->
+
+    <div class="content">
+        <h2 class="text-center">Your Cart Items</h2>
+        <div class="cart_table">
+            <table id="table" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>ITEM</th>
+                    <th>PRICE</th>
+                    <th>QUANTITY</th>
+                    <th>SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for item in finalcart %}
+                <tr>
+                    <td>{{ finalcart[item]['Details']['food_name'] }}</td>
+                    <td>120</td>
+                    <td class="cart_cal">
+                        <img src="static/img/minus.png" onclick="dec(this.id)" id="{{ item }}">
+                        <input type="number" min="1" id="{{ item }}_q" class="quantity" value="{{ finalcart[item]['Quantity'] }}" name="item_quantity" onchange="change_value(this.id)">
+                        <!-- <img src="static/img/plus.png" onclick="inc(this.id)" id="{{ item }}"> -->
+                    </td>
+                    <td>
+                        <input type="text" id="{{ item }}_td" value="120" disabled>
+                    </td>
+                </tr>
+            {% end %}
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-md-2 pull-left subtotal">
+                Subtotal: <label>1000</label>
+            </div>
+            <div class="col-md-2 pull-right">
+                <a class="btn btn-success btn-lg pull-right" data-toggle="modal" data-target="#log">Order Now</a>
+            </div>
+        </div>
+        </div>
+        
+        
+    </div>
+    
+    
+    <!--footer Section -->
+    <div class="footer">
+            <div class="container footcontainer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Products</h4>
+                            <li><a href="#">Supplements</a></li>
+                            <li><a href="#">Gym gears</a></li>
+                            <li><a href="#">Nutrition</a></li>
+                            <li><a href="#">Motivation</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>About</h4>
+                            <li><a href="jandi.html">Get a Diet Chart</a></li>
+                            <li><a href="#">BodyBuilding</a></li>
+                            <li><a href="#">calisthenics</a></li>
+                            <li><a href="#">Catalog Request/Download</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Customer Support</h4>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Workout Plans</a></li>
+                            <li><a href="#">30 Day challenges</a></li>
+                            <li><a href="#">Get to Store</a></li>
+                            <li><a href="#">Send your condition</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <h4 class="sc">Stay connected</h4>
+                            <form class="scform">
+                                <input type="text" value="Enter your email" onfocus="this.value='';" onblur="if(this.value==''){this.value='Enter your email';}">
+                                <input type="submit" name="submit">
+                            </form>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    <!--End footer Section -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY  -->
+    <script src="static/plugins/jquery-1.10.2.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="static/plugins/bootstrap.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.quantity').bind('keyup mouseup',function(){
+            var food_id = $(this).attr('id');
+            var food_qty = $(this).val();
+            
+        });
+    });
+    </script>
+    <script type="text/javascript">
+        function change_value(x){
+            var val=document.getElementById(x).value;
+            var old_price=document.getElementById(x+"_td").value;
+            var new_price=old_price*2;
+            document.getElementById(x+"_td").value=new_price;
+        }
+        function inc(x){
+            var val=document.getElementById(x+"_q").value;
+            
+            var int_val=parseInt(val);
+            // alert(int_val+" "+typeof(int_val));
+            int_val=int_val+1;
+            document.getElementById(x+"_q").value=int_val;
+
+            var old_price=document.getElementById(x+"_td").value;
+            old_price=parseInt(old_price);
+            var new_price=old_price;
+            new_price+=old_price;
+            document.getElementById(x+"_td").value=new_price;
+        }
+        function dec(x){
+            var val=document.getElementById(x+"_q").value;
+            var int_val=parseInt(val);
+            if(int_val!=1){
+                int_val=int_val-1;
+                document.getElementById(x+"_q").value=int_val;
+
+                var old_price=document.getElementById(x+"_td").value;
+                old_price=parseInt(old_price);
+                var new_price=old_price;
+                new_price-=old_price;
+                document.getElementById(x+"_td").value=new_price;
+            }
+        }
+    </script>
+</body>
+</html>
