@@ -21,7 +21,7 @@ application = Application(route, **settings)
 
 if __name__ == "__main__":
 	server = HTTPServer(application)
-	server.listen(os.environ.get("PORT", 5000))
+	server.listen(os.environ.get("PORT", 8000))
 	IOLoop.current().start()
 
 					
