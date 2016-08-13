@@ -25,26 +25,7 @@ class plan_formHandler(tornado.web.RequestHandler):
 class faqHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-			self.render('faq.html')
-
-class req_msgHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def post(self):
-		name=self.get_argument('q_name')
-		email=self.get_argument('q_email')
-		msg=self.get_argument('q_message')
-		request_msg={
-			'name':name,
-			'email':email,
-			'msg':msg
-		}
-		yield db.req_messages.insert(request_msg)
-		self.redirect('/?message=true')
-
-class terms_privacyHandler(tornado.web.RequestHandler):
-	@tornado.gen.coroutine
-	def get(self):
 		if bool(self.get_secure_cookie('user')):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
-			self.render('termsAndPrivacy.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+			self.render('faq.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))

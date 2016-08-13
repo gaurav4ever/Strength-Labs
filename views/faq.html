@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="../static/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
@@ -34,8 +33,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Dytila <span class="beta">BETA</span></a>
+                <a class="navbar-brand" href="/">dytila</a>
             </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="glow" href="#about">ABOUT US</a></li>
+                    <li><a class="glow" href="#price-sec">PRICING</a></li>
+                    <li><a class="glow" href="#contact-sec">CONTACT</a></li>
+                    <li><a class="glow" href="/team">MEET THE TEAM</a></li>
+                    <li><a class="glow" href="/custom_plans">COUSTOM MEALS</a></li>
+                    {% if result['loggedIn'] %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/recent_orders">Your orders</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                    {% end %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
@@ -69,9 +92,6 @@
 
                             <dt>How monthly plan is better than regular plan?</dt>
                             <dd>We need to ensure freshness and you make our jobs easier by pre ordering your meals. So we would love to help you back! Monthly meal offers are provided with free smoothies and chance to get our premium pack offers.</dd>
-
-                            <dt>What is 'Add this for WEEK PLAN'</dt>
-                            <dd>When you tick the checkbox name 'Add this for WEEK PLAN', you will get that meal for a week i.e., 1 meal per day for 1 week. If you want to renew that meal you can again go to that meal and can order again.</dd>
                         </dl>
                     </article>
                 </div>
@@ -83,25 +103,53 @@
                     </center>
                 </div>
             </div>
-            <hr class="divider" style="margin-top:60px;margin-bottom:60px;">
         </div>
-
     </div>
 
-    
-    <!--footer Section -->
-    <div class="for-full-back" id="footer">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/terms_privacy"><h4 class="tncp text-center">Terms and Condition / Privacy Policy</h4></a>        
-            </div>
-            <div class="col-md-6">
-                <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>        
+     <!--footer Section -->
+    <div class="footer">
+            <div class="container footcontainer">
+                <div class="row">
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Products</h4>
+                            <li><a href="#">Meals</a></li>
+                            <li><a href="#">Combos</a></li>
+                            <li><a href="#">Shakes and Smoothies</a></li>
+                            <li><a href="#">Desserts</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>About</h4>
+                            <li><a href="jandi.html">About Dytila</a></li>
+                            <li><a href="#">Personal Plans</a></li>
+                            <li><a href="#">Benefits and dytila</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="footer_box">
+                            <h4>Customer Support</h4>
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="#">Our dieticians</a></li>
+                            <li><a href="#">general inquiries</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3">
+                        
+                            <h4 class="sc">Stay connected</h4>
+                            <form class="scform">
+                                <input type="text" value="Enter your email" onfocus="this.value='';" onblur="if(this.value==''){this.value='Enter your email';}">
+                                <input type="submit" name="submit">
+                            </form>
+                        
+                    </div>
+                    
+                </div>
+                
             </div>
         </div>
-        
-        
-    </div>
     <!--End footer Section -->
 
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->

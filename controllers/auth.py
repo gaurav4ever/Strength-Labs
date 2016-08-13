@@ -12,7 +12,6 @@ class registerHandler(tornado.web.RequestHandler):
 		if bool(exists):
 			self.redirect('/?alreadyReg=true')
 		else:
-			print "hello"
 			users = {
 				'email': email,
 				'password': password,
@@ -23,8 +22,6 @@ class registerHandler(tornado.web.RequestHandler):
 				'DP':100
 			}
 			yield db.users.insert(users)
-			exists = yield db.users.find_one({'email':email,'password':password})
-			self.set_secure_cookie('user',str(exists['_id']))
 			self.redirect('/')
 
 class loginHandler(tornado.web.RequestHandler):

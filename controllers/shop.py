@@ -6,27 +6,12 @@ class shopHandler(tornado.web.RequestHandler):
 		if bool(self.get_secure_cookie('user')):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
-			self.render('shop_temp.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
-		else:
-			self.render('shop_temp.html',result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
-
-		#********* For 1st september ***********#
-	# @tornado.gen.coroutine
-	# def get(self):
-	# 	if bool(self.get_secure_cookie('user')):
-	# 		id = self.get_secure_cookie('user')
-	# 		result = yield db.users.find_one({'_id':ObjectId(id)})
-	# 	vegfood = yield db.food.find({'food_type':'veg'}).to_list(None)
-	# 	vegeggfood = yield db.food.find({'food_type':re.compile('egg')}).to_list(None)
-	# 	nonvegfood = yield db.food.find({'food_type':'non veg'}).to_list(None)
-	# 	smoothies = yield db.food.find({'food_type':'smoothies'}).to_list(None)
-	# 	loop=yield db.food.find().to_list(None)
-		
-	# 	self.render('shop.html',vegfood = vegfood, vegeggfood = vegeggfood, nonvegfood = nonvegfood, smoothies = smoothies,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
-
-
-		
-# for i in range(len(loop)-1):
+		vegfood = yield db.food.find({'food_type':'veg'}).to_list(None)
+		vegeggfood = yield db.food.find({'food_type':re.compile('egg')}).to_list(None)
+		nonvegfood = yield db.food.find({'food_type':'non veg'}).to_list(None)
+		smoothies = yield db.food.find({'food_type':'smoothies'}).to_list(None)
+		loop=yield db.food.find().to_list(None)
+		# for i in range(len(loop)-1):
 		# 	print loop[i]['DP']
 
 
@@ -56,3 +41,5 @@ class shopHandler(tornado.web.RequestHandler):
 		# 		}
 
 		# 		)
+
+		self.render('shop.html',vegfood = vegfood, vegeggfood = vegeggfood, nonvegfood = nonvegfood, smoothies = smoothies,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))

@@ -47,7 +47,7 @@ p {
 }
 #home{
   height: 670px;
-  background-image: url("../img/4.jpg");
+  background-image: url("../img/1_.jpg");
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
@@ -193,7 +193,6 @@ border-color: #D30707;
     margin: 30px 0px;
     list-style: none;
     text-align: center;
-    border-radius: 20% 20% 20% 20%;
   
     -webkit-transition: all 0.2s ease;
        -moz-transition: all 0.2s ease;
@@ -202,7 +201,6 @@ border-color: #D30707;
 }
 
 .plan:hover {
-  background: rgba(211,7,7,0.4);
  -webkit-transform: scale(1.1);
  -moz-transform: scale(1.1);
  -ms-transform: scale(1.1);
@@ -216,16 +214,13 @@ border-color: #D30707;
 }
 
 .plan li.plan-head {
-  width: 40%;
-  margin: auto;
    padding: 15px 0px;
-background-color: rgba(211,7,7,0.4);
+background-color: #585858;
 color: #FFFFFF;
 line-height: 20px;
 font-size: 20px;
 font-weight: 600;
 border: none;
-border-radius: 50%;
    }
 
 .plan li.main-price {
@@ -235,12 +230,11 @@ color: #DF0000;
 border: none;
 font-weight: 900;
 font-size: 30px;
-border-radius: 30% 30% 30% 30%;
 }
 .plan .tick_cross{
   width: 20px;
   height: 20px;
-  
+  margin-right: 30px;
 }
 #dytila-two {
     background-image: url("../img/3_.jpg");
@@ -289,9 +283,6 @@ min-height:300px;
 /*===========================
   INDEX PAGE
 =============================*/
-.beta{
-  font-size: 8px;
-}
 .sponser{
   height:480px; 
   
@@ -338,104 +329,6 @@ min-height:300px;
    -ms-transform: scale(1.1);
    -o-transform: scale(1.1);
    transform: scale(1.1);
-}
-.tncp{
-  color: #fff;
-  padding: 0;
-  margin: 0;
-}
-.plans_option{
-  margin-top: 170px;
-}
-.plans_option li{
-  font-size: 20px;
-  color: #000;
-  list-style: none;
-  padding: 10px;
-}
-/*===========================
-  TERMS,CONDITIONS AND PRIVACY PAGE
-=============================*/
-.terms_and_privacy{
-  width: 80%;
-  margin: auto;
-  padding-top: 50px;
-}
-.terms_and_privacy .tab-content > div:nth-child(2){
-  display: none;
-}
-.terms_and_privacy .tab-content > div:nth-child(3){
-  display: none;
-}
-.terms_and_privacy .tab-content > div:nth-child(4){
-  display: none;
-}
-.terms_and_privacy .tab-content > div:nth-child(5){
-  display: none;
-}
-.terms_and_privacy .tab-group {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 20px 0;
-}
-.terms_and_privacy .tab-group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.terms_and_privacy .tab-group li a {
-  display: block;
-  text-decoration: none;
-  padding: 15px;
-  background: rgba(160, 179, 176, 0.9);
-  color: #fff;
-  font-size: 20px;
-  float: left;
-  width: 50%;
-  text-align: center;
-  cursor: pointer;
-  -webkit-transition: .5s ease;
-  transition: .5s ease;
-}
-.terms_and_privacy .tab-group li a:hover {
-  background: rgba(233,0,0,0.5);
-  color: #ffffff;
-}
-.terms_and_privacy .tab-group .active a {
-  background: #DF0000;
-  color: #ffffff;
-}
-.terms_and_privacy .form {
-  padding: 40px;
-  max-width: 95%;
-  margin: 40px auto;
-  margin-top: 0;
-  border-radius: 4px;
-}
-.terms_and_privacy a{
-    list-style: none;
-}
-.terms_and_privacy a:hover{
-    list-style: none;   
-}
-.terms_and_privacy h3{
-  padding: 0;
-  margin: 0;
-}
-.terms_and_privacy h2{
-    margin: 60px;
-}
-.tncp_img{
-    height: 45px;
-    width: 45px;    
-    padding: 10px;
-}
-.terms_and_privacy p{
-  font-size: 16px;
-}
-.terms_and_privacy span{
-  color: #D30707;
-  font-size: 25px;
 }
 /*=======================================
   PROFILE STYLE
@@ -787,43 +680,33 @@ RECENT ORDERS
 /*=========================
     TEAM STYLE
 ===========================*/
-.team_content{
-  width: 98%;
-  margin: auto;
-  margin-top: 50px;
-}
-.team_row{
-  width: 80%;
-  margin: auto;
-}
-.team_row .col-md-2{
-  margin-left: 35px;
-}
-.member_img{
-  border-radius: 50% 50% 50% 50%;
-  width: 150px;
-  height: 150px;
-  margin: 20px;
-}
-.about_team{
-  width: 70%;
-  margin: auto;
-}
-.caption1,.caption2,.caption3,.caption4,.caption5{
-  margin-left: 48px;
-  width: 100px;
-}
-.caption5{
-  width: 200px;
-  margin-left: 25px;
-}
-.team_row p{
-  width: 100px;
-  margin-left: 0px;
-}
 .team_img{
-  height: 500px;
-
+  background: url("static/img/team.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.team_board{
+  border:1px solid #D30707;
+}
+.team img{
+  width: 200px;
+  height: 230px;
+  border:1px solid #D30707;
+  border-radius: 50px;
+}
+.team h4{
+  font-size: 20px;
+  color: #D30707;
+  padding: 0;
+}
+.about{
+  width: 200px;
+  margin-bottom: 5px;
+}
+.team p{
+  margin: 0;
+  padding: 0;
 }
 /*=======================================
     FOOTER STYLES
@@ -1241,54 +1124,7 @@ a:-webkit-any-link{
 .orders_table .table_body{
   margin: auto;
 }
-/*=========================
-  TEMP STYLE
-===========================*/
-.temp_content{
-  width: 80%;
-  margin: auto;
-}
-.temp_content th{
-  width: 200px;
-  padding: 10px;
-}
-.temp_content td{
-  width: 200px;
-  padding: 10px;
-}
-.temp_checkbox{
-  width: 30px;
-}
-.temp_content .temp_button{
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  color: #D30707;
-  background-color: #FFFFFF;
-  border-width: 0;
-  border-radius: 5px;
-  border:1px solid #D30707;
-}
-.temp_content .temp_button:hover{
-  width: 150px;
-  height: 50px;
-  font-size: 20px;
-  color: #FFFFFF;
-  background-color: #D30707;
-  border-width: 0;
-  border-radius: 5px;
-  border:1px solid #D30707;
-}
-.temp_content li{
-  list-style: none;
-  padding: 10px;
-}
-#chilli_paneer,#chicken_breast,#boiled_eggs{
-  background-color: rgba(255,255,255,0.9);
-  color: #D30707;
-  border:1px solid #D30707;
-}
-#chilli_paneer:hover,#chicken_breast:hover,#boiled_eggs:hover{
-  background-color: rgba(211,7,7,0.9);
-  color: #FFFFFF;
-}
+
+
+
+

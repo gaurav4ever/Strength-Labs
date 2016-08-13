@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="../static/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
@@ -35,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Dytila <span class="beta">BETA</span></a>
+                <a class="navbar-brand" href="/">dytila</a>
             </div>
             <!-- Collect the nav links for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -62,8 +61,8 @@
                               <ul class="dropdown-menu" id="dropdown-menu">
                                 <li><a href="/profile">Profile</a></li>
                                 <li><a href="/recent_orders">Your orders</a></li>
-                                <!-- <li><a href="/cart">Cart</a></li>
-                                <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li> -->
+                                <li><a href="/cart">Cart</a></li>
+                                <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/auth/logout">Logout</a></li>
                               </ul>
@@ -84,8 +83,8 @@
     <div  id="home">
         <div class="row text-center">
             <div class="col-md-12">
-                <label style="margin-top:150px;color:#fff;font-size:100px;text-shadow: 1px 1px 20px #000;">Dytila</label>
-                <h2 class="head-sub-main" style="text-shadow: 1px 1px 15px #000;">Dieting has never been this delicious</h2>
+                <label style="margin-top:150px;color:#fff;font-size:100px;">Dytila</label>
+                <h2 class="head-sub-main">Dieting has never been this delicious</h2>
                 {% if not result['loggedIn'] %}
                     <a class="btn btn-default btn-lg" id="button" data-toggle="modal" data-target="#log">Login </a>
                 {% end %}
@@ -99,38 +98,11 @@
                                      <div class="login_form form"  style="background-color:rgba(19, 35, 47, 0.6);">
       
                                           <ul class="tab-group">
-                                            <li class="tab"><a href="#signup">Sign Up</a></li>
-                                            <li class="tab active"><a href="#login">Log In</a></li>
+                                            <li class="tab active"><a href="#signup">Sign Up</a></li>
+                                            <li class="tab"><a href="#login">Log In</a></li>
                                           </ul>
                                           
                                           <div class="tab-content">
-                                            <div id="login">   
-                                              <h1>Welcome Back!</h1>
-                                              
-                                              <form action="/auth/login" method="post">
-                                              
-                                                <div class="field-wrap">
-                                                <label>
-                                                  Email Address<span class="req">*</span>
-                                                </label>
-                                                <input type="email" name="email" required autocomplete="off"/>
-                                              </div>
-                                              
-                                              <div class="field-wrap">
-                                                <label>
-                                                  Password<span class="req">*</span>
-                                                </label>
-                                                <input type="password" name="password" required autocomplete="off"/>
-                                              </div>
-                                              
-                                              <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-
-                                              
-                                              <button name="login" class="button button-block"/>Log In</button>
-                                              </form>
-
-                                            </div>
                                             <div id="signup">   
                                               <h1>Sign Up for Free</h1>
                                               
@@ -177,6 +149,35 @@
                                               </form>
 
                                             </div>
+                                            
+                                            <div id="login">   
+                                              <h1>Welcome Back!</h1>
+                                              
+                                              <form action="/auth/login" method="post">
+                                              
+                                                <div class="field-wrap">
+                                                <label>
+                                                  Email Address<span class="req">*</span>
+                                                </label>
+                                                <input type="email" name="email" required autocomplete="off"/>
+                                              </div>
+                                              
+                                              <div class="field-wrap">
+                                                <label>
+                                                  Password<span class="req">*</span>
+                                                </label>
+                                                <input type="password" name="password" required autocomplete="off"/>
+                                              </div>
+                                              
+                                              <p class="forgot"><a href="#">Forgot Password?</a></p>
+
+
+                                              
+                                              <button name="login" class="button button-block"/>Log In</button>
+                                              </form>
+
+                                            </div>
+                                            
                                           </div><!-- tab-content -->
                                           
                                         </div> <!-- /form -->
@@ -208,7 +209,7 @@
                     <h1>In search for bodybuilding food ?</h1>
                     
                     <h4>
-                        <strong>It is a fact that we are what we eat.Here at dytila, we aim to provide quality nutrition for you
+                        <strong>It is a fact that we are what we eat.Here at dytilla, we aim to provide quality nutrition for you
 through healthy meals.
                         </strong>
                     </h4>
@@ -262,14 +263,14 @@ through healthy meals.
                 <div class="col-md-6 ">
                     <h3 style="color:#FFF;">Vegetarian Food (egg included)</h3>
                     <h4>
-                        <strong style="text-shadow: 1px 1px 15px #000;">Building muscles relying on veggies possible? Absolutely! No compromises with macros! Including and exclusion of eggs in your meal available.
+                        <strong>Building muscles relying on veggies possible? Absolutely! No compromises with macros! Including and exclusion of eggs in your meal available.
                         </strong>
                     </h4>
                 </div>
                 <div class="col-md-6 ">
                     <h3 style="color:#FFF;">Non-Vegetarian Food</h3>
                     <h4>
-                        <strong style="text-shadow: 1px 1px 15px #000;">High quality animal derivatives/chicken with high protein content! Foodgasm as post workout served!
+                        <strong>High quality animal derivatives/chicken with high protein content! Foodgasm as post workout served!
                         </strong>
                     </h4>
                 </div>
@@ -300,12 +301,11 @@ through healthy meals.
             </div>
             <div class="row text-center">
 
-               <div class="col-md-1">
-               </div>
+               
 
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <ul class="plan">
-                            <li class="">Regular Plan</li>
+                            <li class="plan-head">Regular Plan</li>
                             <li class="main-price">Price depends</li>
                             <table class="plan_table" cellspacing="0">
                                 <tbody>
@@ -329,12 +329,10 @@ through healthy meals.
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-2">
-                        
-                    </div>
-                    <div class="col-md-4">
+
+                    <div class="col-md-6">
                         <ul class="plan">
-                            <li class="">Monthly Plan</li>
+                            <li class="plan-head">Monthly Plan</li>
                             <li class="main-price">4000 Rupees</li>
                             <table class="plan_table" cellspacing="0">
                                 <tbody>
@@ -358,9 +356,7 @@ through healthy meals.
                             </li>
                         </ul>
                     </div>
-                <div  class="col-md-1">
-                    
-                </div>
+               
             </div>
 
 
@@ -374,8 +370,8 @@ through healthy meals.
                 <div class="col-md-8 col-md-offset-2 ">
                     <label style="margin-top:70px;">Why dytila</label>
                     <h4>
-                        <strong style="text-shadow: 3px 3px 20px #000;">It is a fact that we are what we eat. Here at dytilla, we aim to provide quality nutrition for you
-                        through healthy meals. The macros in our selection have been meticulously calculated to target your fitness goals. Moreover, we aim to give your taste buds a tantalising experience.
+                        <strong>It is a fact that we are what we eat. Here at dytilla, we aim to provide quality nutrition for you
+through healthy meals. The macros in our selection have been meticulously calculated to target your fitness goals. Moreover, we aim to give your taste buds a tantalising experience.
                         </strong>
                     </h4>
                 </div>
@@ -405,9 +401,9 @@ through healthy meals.
                         <ul class="plan sponser" >
                             <li class="plan-head sponser-head" style="">Apna Dhaba</li>
                             
-                            <li class="sponser_img"><center>
+                            <li class="sponser_img">
                                 Distributing our product is our beloved Apna Dhaba. It is known for its economical,
-tasty and hygienic food selection. It is a popular hangout spot of VIT students.</center><br><br>
+tasty and hygienic food selection. It is a popular hangout spot of VIT students.<br><br>
                                 <img src="static/img/apna-dhabha.png" style="height:250px;width:250px;"> 
                             </li>
                         </ul>
@@ -448,9 +444,10 @@ tasty and hygienic food selection. It is a popular hangout spot of VIT students.
                     </div>
                     <br />
                     <div id="social-icon">
-                        <a href="https://www.facebook.com/dytilameals/"><img class="social_icons" src="static/img/fb.png" target="_blank" /></a>
-                        <a href="https://www.instagram.com/dytila_nutrition/"><img class="social_icons" src="static/img/insta.png" target="_blank" /></a>
-                        
+                        <a href="#"><img class="social_icons" src="static/img/fb.png" /></a>
+                        <a href="#"><img class="social_icons" src="static/img/google_plus.png" /></a>
+                        <a href="#"><img class="social_icons" src="static/img/insta.png" /></a>
+                        <a href="#"><img class="social_icons" src="static/img/twitter.png" /></a>
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -458,23 +455,23 @@ tasty and hygienic food selection. It is a popular hangout spot of VIT students.
                     <p>
                         Need help? We are here for you give us feedback by sharing your story! You can get a real time experience by sharing your story...
                     </p>
-                    <form method="post" action="/req_msg">
+                    <form>
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Name" name="q_name">
+                                    <input type="text" class="form-control" required="required" placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Email address" name="q_email">
+                                    <input type="text" class="form-control" required="required" placeholder="Email address">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <textarea name="q_message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
+                                    <textarea name="message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-default">Submit Request</button>
@@ -491,14 +488,8 @@ tasty and hygienic food selection. It is a popular hangout spot of VIT students.
     <!--End Contact Section -->
     <!--footer Section -->
     <div class="for-full-back" id="footer">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/terms_privacy"><h4 class="tncp text-center">Terms and Condition / Privacy Policy</h4></a>        
-            </div>
-            <div class="col-md-6">
-                <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>        
-            </div>
-        </div>    
+        <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>
+         
     </div>
     <!--End footer Section -->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
@@ -520,10 +511,6 @@ tasty and hygienic food selection. It is a popular hangout spot of VIT students.
             if(window.location.href.indexOf("false") > -1) 
             {
                  alert("Email or Password is incorrect!");
-            }
-            if(window.location.href.indexOf("?message=true") > -1) 
-            {
-                 alert("Your query has been successfully submitted. Thank you!");
             }
         });
         </script>
