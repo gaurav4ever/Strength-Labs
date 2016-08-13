@@ -163,12 +163,12 @@ route = [
 			home.req_msgHandler
 		),
 		(
-			r"/chilli_paneer",
-			temp.chilli_paneerHandler
-		),
-		(
 			r"/chicken_breast",
 			temp.chicken_breastHandler
+		),
+		(
+			r"/chilli_paneer",
+			temp.chilli_paneerHandler
 		),
 		(
 			r"/boiled_eggs",
