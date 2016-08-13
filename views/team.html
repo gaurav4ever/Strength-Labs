@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
@@ -22,22 +23,6 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-      .team_img{
-        background: url("static/img/team.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        height: 617px;
-      }
-      .team_detail{
-        color:#fff;
-        width:70%;
-        margin:auto;
-        margin-top: 100px;
-        font-size: 30px;
-        opacity: 0.6;
-      }
     </style>
 </head>
 <body>
@@ -52,7 +37,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">dytila</a>
+                <a class="navbar-brand" href="/">Dytila <span class="beta">BETA</span></a>
             </div>
             <!-- Collect the nav links for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -63,8 +48,8 @@
                       <ul class="dropdown-menu" id="dropdown-menu">
                         <li><a href="/profile.html">Profile</a></li>
                         <li><a href="/recent_orders">Your orders</a></li>
-                        <li><a href="/cart">Cart</a></li>
-                        <li><a href="#">Chat with Dietician</a></li>
+                        <!-- <li><a href="/cart">Cart</a></li>
+                        <li><a href="#">Chat with Dietician</a></li> -->
                         <li role="separator" class="divider"></li>
                         <li><a href="#">Logout</a></li>
                       </ul>
@@ -78,124 +63,34 @@
     </div>
     <!--End Navigation -->
 
-    <div class="content" >
-        <div class="row team_img">
+    <div class="team_content" >
+      <h1 class="text-center">Meet The Team</h1>
         
-        <div class="team_detail">
-        <center>
-        <h1 class="text-center">MEET THE TEAM</h1>
-          <strong>
-            Hey there! We are the team dytila. You might often hear about balancing your work and play. But you know what fuels all? FOOD! You are what you eat, eating clea is the first step in achieving fitness, and that's where we step in. We hope you will have a great experience with dytila :)
-          </strong>
-          </center>
-        </div>
-            <!-- <h1 class="text-center">MEET THE TEAM</h1>
-        <div class="row text-center">
-
-              <div class="col-sm-4 col-md-4">
-                  <center>
-                  <div class="team top_left">
-                  
-                    <img src="static/img/saurav.png" alt="p1" >
-                    <div class="caption">
-                      <h4>Saurav Sharma</h4>
-                      <div class="about">
-                        Emerging entrepreneur and fitness addict in simple word he is<br>pretty cool 
-                      </div>
-                      <a href="#">See his facebook</a>
-                    </div>
-                    
-                  </div>
-                  </center>
-              </div>
-
-              <div class="col-sm-4 col-md-4">
-              <div class="team top">
-                img here
-              </div>
-              </div>
-
-              <div class="col-sm-4 col-md-4">
-                  <center>
-                  <div class="team top_right">
-                  
-                    <img src="static/img/akshay.png" alt="p1" >
-                    <div class="caption">
-                      <h4>Akshay Kudva</h4>
-                      <div class="about">
-                      One of the most disciplined people we know. No one knows 
-                      his macros better than him.
-                      </div>
-                      <a href="#">see his facebook</a>
-                    </div>
-                    </center>
-              </div>
+        <div class="row team_row">
+          <img src="../static/img/team/team.png" class="team_img">
         </div>
 
-        <div class="row" style="margin-top:30px;">
-
-             <div class="col-sm-5 col-md-5">
-             <center>
-              <div class="team medium_left">
-                <img src="static/img/sid.png" alt="p1" >
-                <div class="caption">
-                  <h4>Siddhart Gupta</h4>
-                  <div class="about">
-                  One of the most disciplined people we know. No one knows 
-                  his macros better than him.
-                  </div>
-                  <a href="#">see his facebook</a>
-                </div>
-                </center>
-              </div>
-              
-              <div class="col-sm-2 col-md-2">
-                  <center>
-              <div class="team medium_left">
-                <div class="caption">
-                  
-                </div>
-                </center>
-              </div>
-
-              <div class="col-sm-5 col-md-5">
-              <center>
-              <div class="team medium_right">
-              
-                <img src="static/img/gaurav.png" alt="p1" >
-                <div class="caption">
-                  <h4>Gaurav Sharma</h4>
-                  <div class="about">
-                The techie of the team! Enjoys lifting as well! What more 
-                    can you ask from a guy?
-                  </div>
-                  <a href="#">see his facebook</a>
-                </div>
-                </center>
-              </div>
-
+        <h1 class="text-center">About Our Team</h1>
+        <div class="row about_team">
+          <div class="col-md-12">
+          <center>
+            <p>
+              <strong>
+              Hey there! We are the team dytila. You might often hear about balancing your work and play. But you know what fuels all? FOOD! You are what you eat, eating clea is the first step in achieving fitness, and that's where we step in. We hope you will have a great experience with dytila :)
+            </strong>
+            </p>
+            </center>
+          </div>
         </div>
-        <div class="row" style="margin-top:20px;">
-              
-                <div class="team bottom">
-                <center>
-                <img src="static/img/abhi.jpg" alt="p1" style="width:200px;height:200px;">
-                <div class="caption">
-                  <h4>Abhivishrut Singh Bhadu</h4>
-                  <div class="about">
-                    One of the most disciplined people we know. No one knows 
-                  his macros better than him.
-                  </div>
-                  <a href="#">see his facebook</a>
-                </div>
-                </center>
-                </div>
-              
-        </div>
-         -->
     </div>
-        </div>
 
+
+    <!--footer Section -->
+    <div class="for-full-back" id="footer">
+        <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>
+         
+    </div>
+    <!--End footer Section -->
     <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY  -->
     <script src="static/plugins/jquery-1.10.2.js"></script>
