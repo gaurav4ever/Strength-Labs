@@ -7,7 +7,6 @@ from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 import os
 import torn
-
 from routes import *
 settings = dict(
 		template_path = os.path.join(os.path.dirname(__file__), "views"),
@@ -21,7 +20,7 @@ application = Application(route, **settings)
 
 if __name__ == "__main__":
 	server = HTTPServer(application)
-	server.listen(os.environ.get("PORT", 8000))
+	server.listen(os.environ.get("PORT", 5000))
 	IOLoop.current().start()
 
 					
