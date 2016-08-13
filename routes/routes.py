@@ -157,6 +157,27 @@ route = [
 		(
 			r"/orders",
 			orders.ordersHandler
+		),
+		(
+			r"/req_msg",
+			home.req_msgHandler
+		),
+		(
+			r"/chilli_paneer",
+			temp.chilli_paneerHandler
+		),
+		(
+			r"/chicken_breast",
+			temp.chicken_breastHandler
+		),
+		(
+			r"/boiled_eggs",
+			temp.boiled_eggsHandler
+		),
+		(
+			r"/terms_privacy",
+			home.terms_privacyHandler
+
 		)
 ]
 					
