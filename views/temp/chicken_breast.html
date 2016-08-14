@@ -113,11 +113,18 @@
               <hr class="divider" style="margin-top:30px;margin-bottom:30px;">            
               <div class="row">
                   <div class="col-md-4">
-                      <input type="checkbox" class="temp_checkbox" name="weekly" >
-                      <label>Add this for WEEK PLAN</label><a href="/faq">Help?</a></input>
+                      <!-- <input type="checkbox" class="temp_checkbox" name="weekly" >
+                      <label>Add this for WEEK PLAN</label><a href="/faq">Help?</a></input> -->
+                      <a href="/faq" style="font-size:20px;">Help?</a>
                   </div>
-                  <div class="col-md-3 pull-right">
-                      <input type="submit" class="temp_button pull-right" name="button" value="Buy Now">
+                  <form method="post" action="/preorder">
+                  <div class="col-md-5">
+                    <input type="text" name="food_name" value="chicken breast" style="display:none;">
+                  </div>
+                  <div class="col-md-3 pull-right">    
+                      <!-- <a href="/preorder" class="btn btn-deafult btn-lg pull-right" id="button">Book Now!</a> -->
+                      <input type="submit" class="temp_button pull-right" name="button" value="Book Now!">
+                  </form>
                   </div>
               </div>
               
@@ -144,5 +151,13 @@
     <script src='static/js/fly_to_cart.js'></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="static/js/custom.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+            if(window.location.href.indexOf("book=true") > -1) 
+            {
+                 alert("Your meal has been booked!\nThank you for Booking :)\nwe will get back to you soon!");
+            }
+        });
+    </script>
 </body>
 </html>

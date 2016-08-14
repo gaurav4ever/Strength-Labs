@@ -1211,6 +1211,16 @@ a:-webkit-any-link{
 .admin .content_main{
   width: 100%;
 }
+.admin_table th{
+  width: 150px;
+  height: 50px;
+  text-align: center;
+}
+.admin_table td{
+  text-align: center;
+  width: 150px;
+  height: 30px;
+}
 /*=========================
   ORDERS STYLE
 ===========================*/

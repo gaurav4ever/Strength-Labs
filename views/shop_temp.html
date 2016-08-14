@@ -41,6 +41,7 @@
             <!-- Collect the nav links for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a class="glow" href="/">HOME</a></li>
                     {% if result['loggedIn'] %}
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
@@ -68,7 +69,7 @@
         </div>
           
             
-            <h3 class="text-center" style="margin-top:80px;">Since dytila is still in BETA phase</h3>
+            <h3 class="text-center" style="margin-top:80px;">Book Your Meals!</h3>
             <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
 
              <!-- food Section -->
@@ -80,7 +81,7 @@
                           <div class="thumbnail item">
                             <img src="../static/img/temp/chilli paneer.jpg" alt="p1" >
                               <a href="/chilli_paneer" class="product_links"><h4>Chilli Paneer</h4></a>
-                              <a href="/chilli_paneer" class="btn btn-primary pull-left" id="chilli_paneer" type="button">order now!</a>
+                              <a href="/chilli_paneer" class="btn btn-primary pull-left" id="chilli_paneer" type="button">Book This Meal!</a>
                               <a id="chilli_paneer" class="btn btn-default pull-right" role="button" onclick="readmore(this)">Read More</a>
                             </div>
                             </center>
@@ -91,7 +92,7 @@
                             <div class="thumbnail item">
                               <img src="../static/img/temp/bonless chicken.jpg" alt="item" >
                                 <a href="/chicken_breast" class="product_links"><h4>Roasted Chicken Breasts</h4></a>
-                                <a href="/chicken_breast" class="btn btn-primary pull-left" id="chicken_breast" type="button">order now!</a>
+                                <a href="/chicken_breast" class="btn btn-primary pull-left" id="chicken_breast" type="button">Book This Meal!</a>
                                 <a id="chicken_breast" class="btn btn-default pull-right" role="button" onclick="readmore(this)">Read More</a>
                             </div>
                             </center>
@@ -102,7 +103,7 @@
                           <div class="thumbnail item">
                             <img src="../static/img/temp/fried boiled eggs.jpg" alt="p1" >
                             <a href="/boiled_eggs" class="product_links"><h4>Fried Boiled Eggs</h4></a>
-                            <a href="/boiled_eggs" class="btn btn-primary pull-left" id="boiled_eggs" type="button">order now!</a>
+                            <a href="/boiled_eggs" class="btn btn-primary pull-left" id="boiled_eggs" type="button">Book This Meal!</a>
                               <a id="boiled_eggs" class="btn btn-default pull-right" role="button" onclick="readmore(this)">Read More</a>
                             </div>
                             </center>

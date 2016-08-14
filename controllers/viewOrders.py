@@ -6,5 +6,6 @@ class viewOrdersHandler(tornado.web.RequestHandler):
 		if bool(self.get_secure_cookie('user')):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
-			self.render('viewOrders.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
-		self.render("viewOrders.html")
+			orders=yield db.order_temp.find().to_list(None)
+			self.render('viewOrders.html',orders=orders,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+		

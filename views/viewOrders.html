@@ -41,6 +41,7 @@
             <!-- Collect the nav links for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a class="glow" href="/">HOME</a></li>
                     {% if result['loggedIn'] %}
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
@@ -84,13 +85,28 @@
             <div class="content_main">
                      <div class="row">
                          <div class="col-md-12">
-                             <p>
-                                 Cash on Delivery is available as a payment method for all items Fulfilled by Amazon, Prime Eligible and some seller fulfilled items. Eligible items will be indicated by the message "Eligible for Cash on Delivery" on the product details page.
-                            You can pay for Cash on Delivery orders by cash at all locations and by Credit/Debit card in select locations. Please check with the delivery associate if you can pay by card. We accept Visa, MasterCard, Maestro and Rupay debit and credit cards from all banks.</p>
-
-                            <p>Cash on Delivery cannot be used in conjunction with the gift card balance as a payment mode. If you deselect gift card balance as a payment mode, Cash On Delivery may become available as a payment mode, provided the item and pin code are eligible.
-                            There are no extra charges for Cash on Delivery. We only collect the amount printed on the invoice.</p>
-
+                             <table class="admin_table">
+                                 <thead>
+                                     <tr>
+                                         <th>Order ID</th>
+                                         <th>Food Name</th>
+                                         <th>User Name</th>
+                                         <th>Mobile</th>
+                                         <th>Email</th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                 {% for meal in orders %}
+                                     <tr>
+                                         <td>{{ meal['_id'] }}</td>
+                                         <td>{{ meal['food_name'] }}</td>
+                                         <td>{{ meal['user_name'] }}</td>
+                                         <td>{{ meal['mobile'] }}</td>
+                                         <td>{{ meal['user_mail'] }}</td>
+                                     </tr>
+                                {% end %}
+                                 </tbody>
+                             </table>
                          </div>
                      </div>
             </div>
@@ -103,10 +119,16 @@
     
     <!--End Contact Section -->
     
-    <!--footer Section -->
+   <!--footer Section -->
     <div class="for-full-back" id="footer">
-        <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>
-         
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/terms_privacy"><h4 class="tncp text-center">Terms and Condition / Privacy Policy</h4></a>        
+            </div>
+            <div class="col-md-6">
+                <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>        
+            </div>
+        </div>    
     </div>
     <!--End footer Section -->
     

@@ -177,5 +177,9 @@ route = [
 		(
 			r"/terms_privacy",
 			home.terms_privacyHandler
+		),
+		(
+			r"/preorder",
+			temp.preorderHandler
 		)
 ]
