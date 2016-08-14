@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Dytila <span class="beta">BETA</span></a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% if result['loggedIn'] %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile">Profile</a></li>
+                        <li><a href="/recent_orders">Your orders</a></li>
+                        <li><a href="/cart">Cart</a></li>
+                        <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                    {% end %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!--End Navigation -->
+    <section class="food_shop" id="shop">
+        <h1 class="text-center">Roasted Boiled Eggs</h1>
+        
+        <div class="temp_content">
+        <hr class="divider" style="margin-top:30px;margin-bottom:30px;">                
+              
+              <div class="row">
+                  <div class="col-md-3">
+                    <img src="../../static/img/temp/fried boiled eggs.jpg" alt="p1" >
+                  </div>
+                  <div class="col-md-4">
+                    <center>
+                      <ul>
+                          <li><label>Included Items In Package </label></li>
+                          <li>Roasted Boiled Eggs</li>
+                          <li>Brown Rice</li>
+                          <li>Broccolli</li>
+                          <li>Carrot</li>
+                      </ul>
+                      </center>
+                  </div>
+                  <div class="col-md-5">
+                      <table class="pull-right">
+                          <thead>
+                              <tr>
+                                  <th>Approx. Compostion</th>
+                                  <th>Per Container (approx.)</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                    <td>Protein</td>   
+                                    <td>14g</td>   
+                              </tr>
+                              <tr>
+                                    <td>Carbohydrates</td>   
+                                    <td>25g</td>   
+                              </tr>
+                              <tr>
+                                    <td>Fats</td>   
+                                    <td>116g</td>   
+                              </tr>
+                              <tr>
+                                    <td>Calories</td>   
+                                    <td>1159</td>   
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+              <hr class="divider" style="margin-top:30px;margin-bottom:30px;">            
+              <div class="row">
+                  <div class="col-md-4">
+                      <input type="checkbox" class="temp_checkbox" name="weekly" >
+                      <label>Add this for WEEK PLAN</label> <a href="/faq">Help?</a></input>
+                  </div>
+                  <div class="col-md-3 pull-right">
+                      <input type="submit" class="temp_button pull-right" name="button" value="Buy Now">
+                  </div>
+              </div>
+              
+        </div>
+    </section>
+    
+    <!--footer Section -->
+    <div class="for-full-back" id="footer">
+        <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Right Reserved</h4>
+         
+    </div>
+    <!--End footer Section -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+
+    <!-- CORE JQUERY  -->
+    <script src="static/plugins/jquery-1.12.1.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="static/plugins/bootstrap.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://arrow.scrolltotop.com/arrow27.js"></script>
+    <script src='static/plugins/jquery-ui.min.js'></script>
+    <script src='static/js/fly_to_cart.js'></script>
+    <!-- CUSTOM SCRIPTS -->
+    <script src="static/js/custom.js"></script>
+</body>
+</html>
