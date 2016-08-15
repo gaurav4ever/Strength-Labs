@@ -48,3 +48,5 @@ class terms_privacyHandler(tornado.web.RequestHandler):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
 			self.render('termsAndPrivacy.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+		else:
+			self.render('termsAndPrivacy.html',result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
