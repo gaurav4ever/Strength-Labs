@@ -17,7 +17,7 @@ class shopHandler(tornado.web.RequestHandler):
 	# 		id = self.get_secure_cookie('user')
 	# 		result = yield db.users.find_one({'_id':ObjectId(id)})
 	# 	vegfood = yield db.food.find({'food_type':'veg'}).to_list(None)
-	# 	vegeggfood = yield db.food.find({'food_type':re.compile('egg')}).to_list(None)
+		# vegeggfood = yield db.food.find({'food_type':re.compile('egg')}).to_list(None)
 	# 	nonvegfood = yield db.food.find({'food_type':'non veg'}).to_list(None)
 	# 	smoothies = yield db.food.find({'food_type':'smoothies'}).to_list(None)
 	# 	loop=yield db.food.find().to_list(None)

@@ -181,5 +181,33 @@ route = [
 		(
 			r"/preorder",
 			temp.preorderHandler
+		),
+		(
+			r"/askDytila",
+			askDytila.askDytilaHandler
+		),
+		(
+			r"/askque",
+			askDytila.askqueHandler
+		),
+		(
+			r"/postque",
+			askDytila.postqueHandler
+		),
+		(
+			r"/ansque",
+			askDytila.ansqueHandler
+		),
+		(
+			r"/seemore",
+			askDytila.seemoreHandler
+		),
+		(
+			r"/ans",
+			askDytila.ansHandler
+		),
+		(
+			r"/seemore_addans",
+			askDytila.addansHandler
 		)
 ]

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ask Dytila</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style_askDytila.css">
+</head>
+<body>
+	<!-- Navigation -->
+   <div class="header">
+		<h1 class="text-center">Ask Dytila!</h1>
+	<h3 class="text-center">Where People Ask Fitness...</h3>	
+	<div class="tabs">
+		<div class="row">
+			<div class="col-md-8">
+				<ul class="tab">
+					<a href="/askDytila"><li>Home</li></a>
+					<a href="/"><li>Dytila</li></a>
+					<a href="/askque"><li>Ask a Question</li></a>
+					<a href="/ansque"><li>Answer a question</li></a>
+					<a href="/auth/logout"><li>Logout</li></a>
+				</ul>		
+			</div>
+			<div class="col-md-4 search">
+				<input type="text" name="search" placeholder="Enter Here....">
+				<button>Search</button>
+			</div>
+		</div>
+		
+	</div>
+		
+	</div>
+    <!--End Navigation -->
+	<div class="wrapper askque">
+	<hr class="divider" style="margin-top:100px;margin-bottom:30px;">
+		<h1 class="text-center">Ask you question here!</h1>
+		<hr class="divider" style="margin-top:30px;margin-bottom:30px;">
+
+			<div class="row">
+				<div class="col-md-12 askarea">
+				<form action="/postque" method="post">
+					<textarea class="ask_textarea" name="que" placeholder="enter your question here..."></textarea>		
+					<br><br>
+					<input type="submit" name="submit" value="SUBMIT" id="button">		
+				</div>
+				</form>
+			</div>
+
+	</div>
+
+	<!--Footer section-->
+	<div class="footer">
+	<hr class="divider" style="margin-top:60px;margin-bottom:60px;">
+	<center>
+		<!-- <div class="row">
+			<div class="col-md-3">
+				<ul>
+					<li class="list_head">Trending</li>
+					<li>option1</li>
+					<li>option2</li>
+					<li>option3</li>
+					<li>option4</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<ul>
+					<li class="list_head">Trending</li>
+					<li>option1</li>
+					<li>option2</li>
+					<li>option3</li>
+					<li>option4</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<ul>
+					<li class="list_head">Trending</li>
+					<li>option1</li>
+					<li>option2</li>
+					<li>option3</li>
+					<li>option4</li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<ul>
+					<li class="list_head">Trending</li>
+					<li>option1</li>
+					<li>option2</li>
+					<li>option3</li>
+					<li>option4</li>
+				</ul>
+			</div>
+		</div> -->
+		<div class="row copyright" style="margin-top:30px;">
+			<div class="col-md-6">
+				<h4>&copy; 2016 dytila | All Rights Reserved</h4>
+			</div>
+			<div class="col-md-4 social_img pull-right">
+				<h4 class="pull-left">Follow us :</h4>
+				<img src="../static/img/fb.png">
+				<img src="../static/img/insta.png">
+			</div>
+		</div>
+		</center>
+	</div>
+	<hr class="divider" style="margin-top:60px;margin-bottom:60px;width:80%;">
+	<!--End Footer section-->
+	
+</body>
+<script type="text/javascript">
+	 if(window.location.href.indexOf("?posted=true") > -1) 
+            {
+                 alert("your question has been submitted successfully!");
+            }
+     if(window.location.href.indexOf("loggedIn=false") > -1) 
+    {
+         alert("Please Log In first");
+    }
+</script>
+</html>
