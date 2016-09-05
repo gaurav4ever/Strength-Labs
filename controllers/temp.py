@@ -43,7 +43,10 @@ class preorderHandler(tornado.web.RequestHandler):
 				'user_id': user_id,
 				'user_name':name,
 				'user_mail':result['email'],
-				'mobile':result['mobile']
+				'mobile':result['mobile'],
+				'meal_freq':'28',
+				'time':'4 pm',
+				'location':'VIT main gate'
 			}
 			yield db.order_temp.insert(order)
 			if food_name=='chicken breast' :
