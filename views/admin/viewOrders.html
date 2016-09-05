@@ -94,15 +94,15 @@
                     <div class="content_main">
                              <div class="row">
                                  <div class="col-md-12">
-                                     <table class="adminTable" id="admin_table">
+                                     <table class="admin_table" id="admin_table">
                                          <thead>
                                              <tr>
                                                  <th>Order ID</th>
                                                  <th>Food Name</th>
-                                                 <!-- <th>User Name</th>
+                                                 <th>User Name</th>
                                                  <th>Mobile</th>
                                                  <th>Email</th>
-                                                 <th>asdkjnsjk</th> -->
+                                                 <th></th>
                                              </tr>
                                          </thead>
                                          <tbody>
@@ -113,7 +113,7 @@
                                                  <td>{{ meal['user_name'] }}</td>
                                                  <td>{{ meal['mobile'] }}</td>
                                                  <td>{{ meal['user_mail'] }}</td>
-                                                 
+                                                 <td><input id="button" type="submit" name="submit" value="Show"></td>
                                              </tr>
                                         {% end %}
                                          </tbody>

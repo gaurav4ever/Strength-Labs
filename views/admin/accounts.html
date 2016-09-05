@@ -94,26 +94,21 @@
                     <div class="content_main">
                              <div class="row">
                                  <div class="col-md-12">
-                                     <table class="adminTable" id="admin_table">
+                                     <table class="admin_table" id="admin_table">
                                          <thead>
                                              <tr>
-                                                 <th>Order ID</th>
-                                                 <th>Food Name</th>
-                                                 <!-- <th>User Name</th>
+                                                 <th>User Name</th>
                                                  <th>Mobile</th>
                                                  <th>Email</th>
-                                                 <th>asdkjnsjk</th> -->
+                                                
                                              </tr>
                                          </thead>
                                          <tbody>
-                                         {% for meal in orders %}
+                                         {% for user in users %}
                                              <tr>
-                                                 <td>{{ meal['_id'] }}</td>
-                                                 <td>{{ meal['food_name'] }}</td>
-                                                 <td>{{ meal['user_name'] }}</td>
-                                                 <td>{{ meal['mobile'] }}</td>
-                                                 <td>{{ meal['user_mail'] }}</td>
-                                                 
+                                                 <td>{{ user['full_name']+user['last_name'] }}</td>
+                                                 <td>{{ user['mobile'] }}</td>
+                                                 <td>{{ user['email'] }}</td>
                                              </tr>
                                         {% end %}
                                          </tbody>

@@ -150,10 +150,20 @@ route = [
 			r"/faq",
 			home.faqHandler
 		),
+		# ADMIN ACCOUNT HANDLER
 		(
 			r"/viewOrders",
-			viewOrders.viewOrdersHandler
+			admin.viewOrdersHandler
 		),
+		(
+			r"/accounts",
+			admin.accountsHandler
+		),
+		(
+			r"/bills",
+			admin.billsHandler
+		),
+		# END ADMIN ACCOUNT HANDLER
 		(
 			r"/orders",
 			orders.ordersHandler

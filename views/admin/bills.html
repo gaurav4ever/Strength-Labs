@@ -18,6 +18,7 @@
     <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="../static/css/style.css" rel="stylesheet" />
     <link href="../static/css/admin_style.css" rel="stylesheet" />
+    
     <script src="../static/js/jquery-1.12.3.js"></script>
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
@@ -94,26 +95,25 @@
                     <div class="content_main">
                              <div class="row">
                                  <div class="col-md-12">
-                                     <table class="adminTable" id="admin_table">
+                                     <table class="admin_table" id="admin_table">
                                          <thead>
                                              <tr>
+                                                 <th>User Name</th>
+                                                 <th>Customer ID</th>
                                                  <th>Order ID</th>
+                                                 <th>Bill ID</th>
                                                  <th>Food Name</th>
-                                                 <!-- <th>User Name</th>
-                                                 <th>Mobile</th>
-                                                 <th>Email</th>
-                                                 <th>asdkjnsjk</th> -->
+                                                 <th></th>
                                              </tr>
                                          </thead>
                                          <tbody>
-                                         {% for meal in orders %}
+                                         {% for bill in bills %}
                                              <tr>
-                                                 <td>{{ meal['_id'] }}</td>
-                                                 <td>{{ meal['food_name'] }}</td>
-                                                 <td>{{ meal['user_name'] }}</td>
-                                                 <td>{{ meal['mobile'] }}</td>
-                                                 <td>{{ meal['user_mail'] }}</td>
-                                                 
+                                                 <td>{{ bill['user_name']}}</td>
+                                                 <td>{{ bill['customer_id'] }}</td>
+                                                 <td>{{ bill['order_id'] }}</td>
+                                                 <td>{{ bill['bill_id'] }}</td>
+                                                 <td>{{ bill['food_name'] }}</td>
                                              </tr>
                                         {% end %}
                                          </tbody>

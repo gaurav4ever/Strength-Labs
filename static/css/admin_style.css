@@ -1,0 +1,36 @@
+.tabs{
+	
+}
+.tabs .col-md-12{
+	padding: 0;
+}
+.tabs ul{
+	background-color: #fff;
+	border:1px solid #d30707;
+	border-radius: 10px;
+	padding: 10px;
+	height: 40px;
+}
+.tabs li{
+	padding-right: 10px;
+	padding-left: 10px;
+	display: inline;
+	list-style: none;
+	border-right: 1px solid #d30707;
+}
+.content_main{
+	background-color: #fff;
+	border-radius: 10px;
+	border:1px solid #d30707;
+}
+#admin_table{
+	width: 95%;
+	margin: auto;
+}
+#admin_table td{
+	padding: 5px;
+}
+#button{
+	border-radius: 10px;
+	width: 90px;
+}
