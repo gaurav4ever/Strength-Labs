@@ -82,12 +82,19 @@
             <div class="row tabs">
                 <div class="col-md-12" style="padding-top:0;padding-bottom:0;">
                     <ul class="options">
+                        {% if (result['user']['full_name']=='chandni' and result['user']['last_name']=='chowk')%}
+                        <li><a href="/viewOrders">Orders</a></li>
+                        <li><a href="/bills">Bill</a></li>
+                        <li><a href="/regular">Regular</a></li>
+                        <li><a href="/add_order">New Order</a></li>
+                    {% else %}
                         <li><a href="/accounts">Accounts</a></li>
                         <li><a href="/viewOrders">Orders</a></li>
                         <li><a href="/bills">Bill</a></li>
                         <li><a href="">Foods</a></li>
                         <li><a href="/regular">Regular</a></li>
                         <li><a href="/add_order">New Order</a></li>
+                    {% end %}
                     </ul>
                 </div>
             </div>
