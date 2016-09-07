@@ -46,6 +46,37 @@ class user_billHandler(tornado.web.RequestHandler):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
 			order_id=self.get_argument('order_id')
+
+			#Can Change
+			food=self.get_argument('food')
+			mail=self.get_argument('mail')
+			mobile=self.get_argument('mobile')
+			Tmeal_freq=self.get_argument('Tmeal_freq')
+			meal_freq=self.get_argument('meal_freq')
+			timing=self.get_argument('timing')
+			location=self.get_argument('location')
+			img=self.get_argument('img')
+
+			yield db.order_temp.update(
+				{
+					'_id':ObjectId(order_id)
+				},
+
+					{
+						'$set':
+							{
+								'food_name':food,
+								'user_mail':mail,
+								'mobile':mobile,
+								'Tmeal_freq':Tmeal_freq,
+								'meal_freq':meal_freq,
+								'time':timing,
+								'location':location,
+								'img':img,
+							}
+					}
+				)
+
 			bill=yield db.order_temp.find_one({'_id':ObjectId(order_id)})
 
 			#bill generator
