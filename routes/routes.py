@@ -219,5 +219,30 @@ route = [
 		(
 			r"/seemore_addans",
 			askDytila.addansHandler
+		),
+		(
+			r"/user_details",
+			admin.user_detailsHandler
+		),
+		(
+			r"/user_bill",
+			admin.user_billHandler
+		)
+		,
+		(
+			r"/udpate_bill",
+			admin.udpate_billHandler
+		),
+		(
+			r"/regular",
+			admin.regularHandler
+		),
+		(
+			r"/add_order",
+			admin.add_orderHandler
+		),
+		(
+			r"/add_user_order",
+			admin.add_user_orderHandler
 		)
 ]

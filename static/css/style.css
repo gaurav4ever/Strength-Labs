@@ -440,7 +440,12 @@ min-height:300px;
 /*=======================================
   PROFILE STYLE
 ========================================*/
-
+.user_img{
+  width: 200px;
+  height: 220px;
+  border:1px solid #d30707;
+  border-radius: 10px;
+}
 .divider{
   background-color: #ddd;
   margin-top : 10px;
@@ -478,6 +483,9 @@ min-height:300px;
 }
 .user_options dl dt{
   margin-bottom: 10px;
+}
+.user_order_table td{
+  padding: 10px;  
 }
 /*=======================================
   SIDEBAR AND CONTENT_MAIN

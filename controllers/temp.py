@@ -44,6 +44,7 @@ class preorderHandler(tornado.web.RequestHandler):
 				'user_name':name,
 				'user_mail':result['email'],
 				'mobile':result['mobile'],
+				'Tmeal_freq':'28',
 				'meal_freq':'28',
 				'time':'4 pm',
 				'location':'VIT main gate'

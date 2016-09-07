@@ -22,7 +22,7 @@
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#admin_table').DataTable();
+          $('#user_details_table').DataTable();
         } );
     </script>
     <!-- GOOGLE FONT -->
@@ -91,31 +91,78 @@
                     </ul>
                 </div>
             </div>
-            <div class="row admin_body">
+            <div class="row user_details_body">
                 <div class="col-md-12" style="padding-top:0;margin-bottom:100px;">
                     <div class="content_main">
                              <div class="row">
-                                 <div class="col-md-12">
-                                     <table class="admin_table" id="admin_table">
-                                         <thead>
-                                             <tr>
-                                                 <th>User Name</th>
-                                                 <th>Mobile</th>
-                                                 <th>Email</th>
-                                                
-                                             </tr>
-                                         </thead>
+                                <div class="col-md-7">
+                                    <table class="user_details_table">
                                          <tbody>
-                                         {% for user in users %}
                                              <tr>
-                                                 <td>{{ user['full_name']+user['last_name'] }}</td>
-                                                 <td>{{ user['mobile'] }}</td>
-                                                 <td>{{ user['email'] }}</td>
+                                                 <td><label>Customer Name</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['user_name'] }}</td>
                                              </tr>
-                                        {% end %}
+                                             <tr>
+                                                 <td><label>Customer ID</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['user_id'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Order ID</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['_id'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Food Ordered</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['food_name'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Email Id</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_data['email'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Mobile</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_data['mobile'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Total Meal Freq. (per month)</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['Tmeal_freq'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Meals remaining</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['meal_freq'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Collect Time</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['time'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Delivery Location</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['location'] }}</td>
+                                             </tr>
                                          </tbody>
                                      </table>
-                                 </div>
+                                     <div class="row">
+                                         <div class="col-md-12">
+                                            <form action="/user_bill" method="post">
+                                                <input type="text" name="order_id" value="{{ customer_order_data['_id'] }}" hidden>
+                                                <input id="button" type="submit" name="generate" value="Make Bill" class="submit_button">
+                                             </form>        
+                                         </div>
+                                     </div>
+                                     
+                                </div>
+                                <div class="col-md-3 pull-right">
+                                    <img src="../static/img/customer img/{{ customer_order_data['user_img'] }}" class="user_img">
+                                </div>
                              </div>
                     </div>
                 </div>

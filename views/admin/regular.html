@@ -22,7 +22,7 @@
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#admin_table').DataTable();
+          $('#regular_orders_table').DataTable();
         } );
     </script>
     <!-- GOOGLE FONT -->
@@ -92,36 +92,39 @@
                 </div>
             </div>
             <div class="row admin_body">
-                <div class="col-md-12" style="padding-top:0;margin-bottom:100px;">
-                    <div class="content_main">
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <table class="admin_table" id="admin_table">
-                                         <thead>
+            	<div class="col-md-12">
+            		<div class="content_main">
+            			<div class="row">
+            				<div class="col-md-12">
+            					<table class="regular_orders_table" id="regular_orders_table">
+                                     <thead>
+                                         <tr>
+                                             <th>Name</th>
+                                             <th>Mobile</th>
+                                             <th>Meal Name</th>
+                                             <th>Cost</th>
+                                             <th>Date</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                     {% for order in r_orders %}
+                                        
                                              <tr>
-                                                 <th>User Name</th>
-                                                 <th>Mobile</th>
-                                                 <th>Email</th>
-                                                
+                                                 <td>{{ order['name'] }}</td>   
+                                                 <td>{{ order['mobile'] }}</td>   
+                                                 <td>{{ order['meal'] }}</td>   
+                                                 <td>{{ order['cost'] }}</td>
+                                                 <td>{{ order['time'] }}</td>
                                              </tr>
-                                         </thead>
-                                         <tbody>
-                                         {% for user in users %}
-                                             <tr>
-                                                 <td>{{ user['full_name']+user['last_name'] }}</td>
-                                                 <td>{{ user['mobile'] }}</td>
-                                                 <td>{{ user['email'] }}</td>
-                                             </tr>
-                                        {% end %}
-                                         </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                    </div>
-                </div>
+                                    {% end %}
+                                     </tbody>
+                                 </table>				
+            				</div>
+            			</div>
+            	</div>	
+            	</div> 
             </div>
         </div>     
-
     </div>
     
     

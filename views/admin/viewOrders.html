@@ -86,6 +86,8 @@
                         <li><a href="/viewOrders">Orders</a></li>
                         <li><a href="/bills">Bill</a></li>
                         <li><a href="">Foods</a></li>
+                        <li><a href="/regular">Regular</a></li>
+                        <li><a href="/add_order">New Order</a></li>
                     </ul>
                 </div>
             </div>
@@ -97,7 +99,9 @@
                                      <table class="admin_table" id="admin_table">
                                          <thead>
                                              <tr>
-                                                 <th>Order ID</th>
+                                                 <th>Meal Freq.</th>
+                                                 <th>Meal Freq. (rem)</th>
+                                                 <th>Customer ID</th>
                                                  <th>Food Name</th>
                                                  <th>User Name</th>
                                                  <th>Mobile</th>
@@ -107,14 +111,23 @@
                                          </thead>
                                          <tbody>
                                          {% for meal in orders %}
-                                             <tr>
-                                                 <td>{{ meal['_id'] }}</td>
-                                                 <td>{{ meal['food_name'] }}</td>
-                                                 <td>{{ meal['user_name'] }}</td>
-                                                 <td>{{ meal['mobile'] }}</td>
-                                                 <td>{{ meal['user_mail'] }}</td>
-                                                 <td><input id="button" type="submit" name="submit" value="Show"></td>
-                                             </tr>
+                                            
+                                                 <tr>
+                                                     <td>{{ meal['Tmeal_freq'] }}</td>   
+                                                     <td>{{ meal['meal_freq'] }}</td>   
+                                                     <td>{{ meal['user_id'] }}</td>
+                                                     <td>{{ meal['food_name'] }}</td>
+                                                     <td>{{ meal['user_name'] }}</td>
+                                                     <td>{{ meal['mobile'] }}</td>
+                                                     <td>{{ meal['user_mail'] }}</td>
+                                                     <td>
+                                                        <form action="/user_details" method="post">
+                                                            <input type="text" name="customer_id" value="{{ meal['user_id'] }}" hidden>
+                                                            <input type="submit" name="submit" id="button" value="Show">
+                                                        </form>
+                                                     </td>
+                                                 </tr>
+                                            
                                         {% end %}
                                          </tbody>
                                      </table>

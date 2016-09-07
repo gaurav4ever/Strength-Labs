@@ -22,7 +22,7 @@
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#admin_table').DataTable();
+          $('#regular_orders_table').DataTable();
         } );
     </script>
     <!-- GOOGLE FONT -->
@@ -92,36 +92,44 @@
                 </div>
             </div>
             <div class="row admin_body">
-                <div class="col-md-12" style="padding-top:0;margin-bottom:100px;">
-                    <div class="content_main">
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <table class="admin_table" id="admin_table">
-                                         <thead>
-                                             <tr>
-                                                 <th>User Name</th>
-                                                 <th>Mobile</th>
-                                                 <th>Email</th>
-                                                
-                                             </tr>
-                                         </thead>
+            	<div class="col-md-12">
+            		<div class="content_main">
+            			<div class="row">
+            				<div class="col-md-12">
+                                <form action="/add_user_order" method="post">
+                					<table class="add_order_table">
                                          <tbody>
-                                         {% for user in users %}
-                                             <tr>
-                                                 <td>{{ user['full_name']+user['last_name'] }}</td>
-                                                 <td>{{ user['mobile'] }}</td>
-                                                 <td>{{ user['email'] }}</td>
-                                             </tr>
-                                        {% end %}
+                                                <tr>
+                                                    <td>Customer Name</td>
+                                                    <td>:</td>
+                                                    <td><input type="text" name="user_name" placeholder="user name"></td>   
+                                                </tr>
+                                                <tr>
+                                                    <td>Meal Name</td>
+                                                    <td>:</td>
+                                                    <td><input type="text" name="meal_name" placeholder="meal"></td>   
+                                                </tr>
+                                                <tr>
+                                                    <td>Cost</td>
+                                                    <td>:</td>
+                                                    <td><input type="text" name="cost" placeholder="cost"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mobile</td>
+                                                    <td>:</td>
+                                                    <td><input type="text" name="mobile" placeholder="mobile"></td>
+                                                </tr>
                                          </tbody>
-                                     </table>
-                                 </div>
-                             </div>
-                    </div>
-                </div>
+                                     </table>	
+                                     <br>
+                                     <input type="submit" name="add_order_submit" id="button" class="submit_button">			
+                                 </form>
+            				</div>
+            			</div>
+            	</div>	
+            	</div> 
             </div>
         </div>     
-
     </div>
     
     

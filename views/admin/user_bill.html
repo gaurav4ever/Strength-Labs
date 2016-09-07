@@ -22,7 +22,7 @@
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-          $('#admin_table').DataTable();
+          $('#user_details_table').DataTable();
         } );
     </script>
     <!-- GOOGLE FONT -->
@@ -91,30 +91,67 @@
                     </ul>
                 </div>
             </div>
-            <div class="row admin_body">
+            <div class="row user_details_body">
                 <div class="col-md-12" style="padding-top:0;margin-bottom:100px;">
-                    <div class="content_main">
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <table class="admin_table" id="admin_table">
-                                         <thead>
-                                             <tr>
-                                                 <th>User Name</th>
-                                                 <th>Mobile</th>
-                                                 <th>Email</th>
-                                                
-                                             </tr>
-                                         </thead>
+                    <div class="content_main" style="padding:20px;">
+                             <div class="user_bill">
+                                <h3 class="text-center">Dytila Bill</h3>
+                                <center>
+                                     <table class="user_bill_table">
                                          <tbody>
-                                         {% for user in users %}
                                              <tr>
-                                                 <td>{{ user['full_name']+user['last_name'] }}</td>
-                                                 <td>{{ user['mobile'] }}</td>
-                                                 <td>{{ user['email'] }}</td>
+                                                 <td>Customer Name</td>
+                                                 <td>:</td>
+                                                 <td>{{ bill['user_name'] }}</td>
                                              </tr>
-                                        {% end %}
+                                             <tr>
+                                                 <td>Customer ID</td>
+                                                 <td>:</td>
+                                                 <td>{{ bill['user_id'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Bill Id</td>
+                                                 <td>:</td>
+                                                 <td>{{ bill_id }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Food Name : </td>
+                                                 <td>:</td>
+                                                 <td>{{ bill['food_name'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Delivery Add.</td>
+                                                 <td>:</td>
+                                                 <td>{{ bill['location'] }}</td>
+                                             </tr>
+                                             <tr>
+                                                 <td>Meals Remaining</td>
+                                                 <td>:</td>
+                                                 <td>{{ bill['meal_freq'] }}</td>
+                                             </tr>
                                          </tbody>
                                      </table>
+                                 </center>
+                             </div>
+                             <br>
+                             <div class="row" style="width:65%;margin:auto;">
+                                 <div class="col-md-6">
+                                 <center>
+                                    <form action="/udpate_bill" method="post">
+                                        <input type="text" name="bill_id" value="{{ bill_id }}" hidden>
+                                        <input type="text" name="order_id" value="{{ bill['_id'] }}" hidden>
+                                        <input type="submit" name="update_bill" value="Update" id="button" class="submit_button">
+                                    </form>
+                                    </center>
+                                 </div>
+                                 <div class="col-md-6">
+                                 <center>
+                                    <form action="/udpate_bill" method="post">
+                                        <input type="text" name="bill_id" value="{{ bill_id }}" hidden>
+                                        <input type="text" name="order_id" value="{{ bill['_id'] }}" hidden>
+                                        <input type="submit" name="print_bill" value="Print Bill" id="button" class="submit_button">     
+                                    </form>
+                                 </center>
                                  </div>
                              </div>
                     </div>

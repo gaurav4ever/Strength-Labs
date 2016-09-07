@@ -85,11 +85,12 @@
                         <!-- <li><a href="/profile_address">Address</a></li> -->
                         <li><a href="/profile_settings">Profile settings</a></li>
                         <li><a href="/account_settings">Account settings</a></li>
+                        <li><a href="/my_orders">My Orders</a></li>
                     </ul>
                 </div>
                 <!--End Sidebar-->
             </div>
-            <div class="col-md-9">
+            <div class="col-md-7">
                     <!--Content main section-->
                     <div class="content_main">
                     <h2 class="text-center">Profile</h2>
@@ -129,9 +130,47 @@
                         {% end %}
                     </div>
                     </div>
-            </div>   
+                    <div class="row order_area">
+                        <div class="col-md-12">
+                        <br><br>
+                            <h3>Your Order Details </h3>
+                            {% if order['food_name']==0 %}
+                                <h4>You Have Not Order anything yet :(</h4>
+                                <h4><a href="/shop">Order Now!</a></h4>
+                            {% else %}
+                            <table class="user_order_table">
+                                <tbody>
+                                    <tr>
+                                        <td><label>Food Name</label></td>
+                                        <td>:</td>
+                                        <td>{{ order['food_name'] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Total Meal Freq. (per month)</label></td>
+                                        <td>:</td>
+                                        <td>{{ order['Tmeal_freq'] }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Meal Freq. (remaining)</label></td>
+                                        <td>:</td>
+                                        <td>{{ order['meal_freq'] }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {% end %}
+                        </div>
+                    </div>
+            </div> 
+            <div class="col-md-2">
+                <img src="../static/img/customer img/{{ order['user_img'] }}" class="user_img">
+            </div>  
                     <!--End content_main Section -->
             </div>
+            <!-- <div class="row">
+                <div class="col-md-12">
+                    <h2>hello</h2>
+                </div>
+            </div> -->
             <hr class="divider" style="margin-top:10px;margin-bottom:10px;">
         </div>
     <!--footer Section -->
