@@ -143,6 +143,7 @@ class add_user_orderHandler(tornado.web.RequestHandler):
 			result = yield db.users.find_one({'_id':ObjectId(id)})
 			name=self.get_argument('user_name')
 			meal=self.get_argument('meal_name')
+			quantity=self.get_argument('meal_quantity')
 			cost=self.get_argument('cost')
 			mobile=self.get_argument('mobile')
 
@@ -151,6 +152,7 @@ class add_user_orderHandler(tornado.web.RequestHandler):
 			customer={
 				'name':name,
 				'meal':meal,
+				'quantity':quantity,
 				'cost':cost,
 				'time':time,
 				'mobile':mobile
@@ -158,3 +160,39 @@ class add_user_orderHandler(tornado.web.RequestHandler):
 			yield db.regular.insert(customer)
 
 			self.redirect('/add_order')
+
+class update_regularHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def post(self):
+		name=self.get_argument('name')
+		mobile=self.get_argument('mobile')
+		meal=self.get_argument('meal')
+		quantity=int(self.get_argument('meal_quantity'))
+		cost=self.get_argument('cost')
+		regular_id=self.get_argument('regular_id')
+
+		yield db.regular.update(
+				{
+					'_id':ObjectId(regular_id)
+				},
+
+					{
+						'$set':
+							{
+								'name':name,
+								'mobile':mobile,
+								'cost':cost,
+								'meal':meal,
+								'quantity':quantity
+							}
+					}
+				)
+		self.redirect('/regular')
+
+class delete_regularHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def post(self):
+		regular_id=self.get_argument('regular_id')
+		yield db.regular.remove({'_id':ObjectId(regular_id)})
+		self.redirect('/regular')
+

@@ -244,5 +244,14 @@ route = [
 		(
 			r"/add_user_order",
 			admin.add_user_orderHandler
+		),
+		(
+			r"/update_regular",
+			admin.update_regularHandler
+		)
+		,
+		(
+			r"/delete_regular",
+			admin.delete_regularHandler
 		)
 ]
