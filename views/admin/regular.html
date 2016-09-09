@@ -15,10 +15,20 @@
     <!-- VEGAS STYLE CSS -->
     <link href="../static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
     <!-- CUSTOM STYLE CSS -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="../static/css/style.css" rel="stylesheet" />
     <link href="../static/css/admin_style.css" rel="stylesheet" />
-    <script src="../static/js/jquery-1.12.3.js"></script>
+    <!-- <script src="../static/js/jquery-1.12.3.js"></script> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
     <script src="../static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -30,6 +40,9 @@
     <style type="text/css">
         body{
             background-color: #FCDFFF;
+        }
+        .date_search{
+            margin: 10px;
         }
         .admin{
             background-color: #dcdcdc;
@@ -133,6 +146,9 @@
             <div class="row">
             	<div class="col-md-12" style="padding-top:0">
             		<div class="content_main">
+
+                        <!-- <p class="date_search">Search By Date: <input type="text" id="datepicker"></p> -->
+
             			<div class="row">
             				<div class="col-md-12">
             					<table class="regular_orders_table" id="regular_orders_table">
@@ -168,7 +184,9 @@
                                                     <td id="cost">
                                                         <input id="reg_value" type="text" name="cost" value="{{ order['cost'] }}">
                                                     </td>
-                                                    <td>{{ order['time'] }}</td>
+                                                    <td>
+                                                        {{ order['time'] }}
+                                                    </td>
                                                     <td id="sd_button">
                                                         <input type="text" name="regular_id" value="{{ order['_id'] }}" hidden>
                                                         <input id="button" type="submit" name="update" value="save">
@@ -215,6 +233,7 @@
     
     <!-- BOOTSTRAP CORE SCRIPT   -->
     <script src="../static/plugins/bootstrap.js"></script>
+    <!-- <script src="../static/plugins/vegas/jquery-ui.min.js"></script> -->
 
 </body>
 </html>

@@ -148,13 +148,15 @@ class add_user_orderHandler(tornado.web.RequestHandler):
 			mobile=self.get_argument('mobile')
 
 			import time;
-			time = str(time.asctime( time.localtime(time.time()) ))
+			date = time.strftime("%d/%m/%Y")
+			time = time.strftime("%H:%M:%S%p")
+			dt=date+" "+time
 			customer={
 				'name':name,
 				'meal':meal,
 				'quantity':quantity,
 				'cost':cost,
-				'time':time,
+				'time':dt,
 				'mobile':mobile
 			}
 			yield db.regular.insert(customer)
@@ -169,6 +171,7 @@ class update_regularHandler(tornado.web.RequestHandler):
 		meal=self.get_argument('meal')
 		quantity=int(self.get_argument('meal_quantity'))
 		cost=self.get_argument('cost')
+		time=self.get_argument('time')
 		regular_id=self.get_argument('regular_id')
 
 		yield db.regular.update(
@@ -183,7 +186,8 @@ class update_regularHandler(tornado.web.RequestHandler):
 								'mobile':mobile,
 								'cost':cost,
 								'meal':meal,
-								'quantity':quantity
+								'quantity':quantity,
+								'time':time
 							}
 					}
 				)
