@@ -171,7 +171,7 @@ class update_regularHandler(tornado.web.RequestHandler):
 		meal=self.get_argument('meal')
 		quantity=int(self.get_argument('meal_quantity'))
 		cost=self.get_argument('cost')
-		time=self.get_argument('time')
+		# time=self.get_argument('time')
 		regular_id=self.get_argument('regular_id')
 
 		yield db.regular.update(
@@ -187,7 +187,7 @@ class update_regularHandler(tornado.web.RequestHandler):
 								'cost':cost,
 								'meal':meal,
 								'quantity':quantity,
-								'time':time
+								# 'time':time
 							}
 					}
 				)
