@@ -36,7 +36,7 @@ class user_detailsHandler(tornado.web.RequestHandler):
 			customer_id=self.get_argument('customer_id')
 			customer_data=yield db.users.find_one({'_id':ObjectId(customer_id)})
 			customer_order_data=yield db.order_temp.find_one({'user_id':customer_id})
-			print customer_order_data
+			# print customer_order_data
 			self.render('admin/user_details.html',customer_data=customer_data,customer_order_data=customer_order_data,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))			
 
 class user_billHandler(tornado.web.RequestHandler):
@@ -72,7 +72,7 @@ class user_billHandler(tornado.web.RequestHandler):
 								'meal_freq':meal_freq,
 								'time':timing,
 								'location':location,
-								'img':img,
+								'user_img':img,
 							}
 					}
 				)
@@ -102,7 +102,7 @@ class udpate_billHandler(tornado.web.RequestHandler):
 			result = yield db.users.find_one({'_id':ObjectId(id)})
 			bill_id=self.get_argument('bill_id')
 			order_id=self.get_argument('order_id')
-			bill_details=yield db.order_temp.find_one({'_id':ObjectId(order_id)})
+			bill_detail=yield db.order_temp.find_one({'_id':ObjectId(order_id)})
 			yield db.order_temp.update(
 				{
 					'_id':ObjectId(order_id)
@@ -111,12 +111,12 @@ class udpate_billHandler(tornado.web.RequestHandler):
 					{
 						'$set':
 							{
-								'meal_freq':str(int(bill_details['meal_freq'])-1)
+								'meal_freq':str(int(bill_detail['meal_freq'])-1)
 							}
 					}
 				)
 			bill_details=yield db.order_temp.find_one({'_id':ObjectId(order_id)})
-			self.render('admin/update_bill2.php',bill_details=bill_details,bill_id=bill_id)
+			self.render('admin/update_bill.html',bill_details=bill_details,bill_id=bill_id)
 
 class regularHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine

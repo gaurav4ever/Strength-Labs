@@ -7,14 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>dytila</title>
-    <!--REQUIRED STYLE SHEETS-->
-    <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="../static/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLE CSS -->
     <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
-    <!-- VEGAS STYLE CSS -->
     <link href="../static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE CSS -->
     <link href="../static/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="../static/css/style.css" rel="stylesheet" />
     <link href="../static/css/admin_style.css" rel="stylesheet" />
@@ -30,6 +25,10 @@
     <style type="text/css">
         body{
             background-color: #FCDFFF;
+        }
+        #freq{
+            width: 30px;
+            padding: 2px;
         }
     </style>
 </head>
@@ -120,8 +119,8 @@
                                          {% for meal in orders %}
                                             
                                                  <tr>
-                                                     <td>{{ meal['Tmeal_freq'] }}</td>   
-                                                     <td>{{ meal['meal_freq'] }}</td>   
+                                                     <td id="freq">{{ meal['Tmeal_freq'] }}</td>   
+                                                     <td id="freq">{{ meal['meal_freq'] }}</td>   
                                                      <td>{{ meal['user_id'] }}</td>
                                                      <td>{{ meal['food_name'] }}</td>
                                                      <td>{{ meal['user_name'] }}</td>

@@ -122,12 +122,12 @@
                                                 <tr>
                                                     <td>Quantity</td>
                                                     <td>:</td>
-                                                    <td><input type="text" name="meal_quantity" value="1"></td>   
+                                                    <td><input type="text" name="meal_quantity" value="1" id="quantity"></td>   
                                                 </tr>
                                                 <tr>
                                                     <td>Cost</td>
                                                     <td>:</td>
-                                                    <td><input type="text" name="cost" placeholder="cost"></td>
+                                                    <td><input type="text" name="cost" placeholder="cost" id="cost" onfocus="cal_cost()"></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Mobile</td>
@@ -167,6 +167,11 @@
     
     <!-- BOOTSTRAP CORE SCRIPT   -->
     <script src="../static/plugins/bootstrap.js"></script>
-
+    <script type="text/javascript">
+        function cal_cost(){
+            var q=document.getElementById('quantity').value;
+            document.getElementById('cost').value=q*180;
+        }
+    </script>
 </body>
 </html>
