@@ -948,10 +948,12 @@ ul.footer_box li a:hover{
   background-color: rgba(255,255,255,0.9);
   color: #D30707;
   border:1px solid #D30707;
+  border-radius: 5px;
 }
 #button:hover{
   background-color: rgba(211,7,7,0.9);
   color: #FFFFFF;
+  border-radius: 5px;
 }
 .cart_content{
   background: rgba(220,220,220,0.2);
@@ -1301,12 +1303,13 @@ a:-webkit-any-link{
   list-style: none;
   padding: 10px;
 }
-#chilli_paneer,#chicken_breast,#boiled_eggs{
-  background-color: rgba(255,255,255,0.9);
+#veg,#nonveg,#egg{
+  width: 100px;
+  background-color: rgba(255,255,255,1);
   color: #D30707;
   border:1px solid #D30707;
 }
-#chilli_paneer:hover,#chicken_breast:hover,#boiled_eggs:hover{
-  background-color: rgba(211,7,7,0.9);
+#veg:hover,#nonveg:hover,#egg:hover{
+  background-color: rgba(211,7,7,1);
   color: #FFFFFF;
 }

@@ -36,7 +36,7 @@ class user_detailsHandler(tornado.web.RequestHandler):
 			customer_id=self.get_argument('customer_id')
 			customer_data=yield db.users.find_one({'_id':ObjectId(customer_id)})
 			customer_order_data=yield db.order_temp.find_one({'user_id':customer_id})
-			# print customer_order_data
+				# print customer_order_data
 			self.render('admin/user_details.html',customer_data=customer_data,customer_order_data=customer_order_data,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))			
 
 class user_billHandler(tornado.web.RequestHandler):
@@ -46,9 +46,9 @@ class user_billHandler(tornado.web.RequestHandler):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
 			order_id=self.get_argument('order_id')
-
 			#Can Change
 			food=self.get_argument('food')
+			spec=self.get_argument('spec.')
 			mail=self.get_argument('mail')
 			mobile=self.get_argument('mobile')
 			Tmeal_freq=self.get_argument('Tmeal_freq')
@@ -73,6 +73,7 @@ class user_billHandler(tornado.web.RequestHandler):
 								'time':timing,
 								'location':location,
 								'user_img':img,
+								'specification':spec,
 							}
 					}
 				)
@@ -199,4 +200,28 @@ class delete_regularHandler(tornado.web.RequestHandler):
 		regular_id=self.get_argument('regular_id')
 		yield db.regular.remove({'_id':ObjectId(regular_id)})
 		self.redirect('/regular')
+
+class admin_foodHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+		if bool(self.get_secure_cookie('user')):
+			id = self.get_secure_cookie('user')
+			result = yield db.users.find_one({'_id':ObjectId(id)})
+			foods=yield db.food.find().to_list(None)
+			self.render('admin/food.html',foods=foods,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+
+
+class meal_infoHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+		if bool(self.get_secure_cookie('user')):
+			id = self.get_secure_cookie('user')
+			result = yield db.users.find_one({'_id':ObjectId(id)})
+			customer_custom_meals=yield db.order_temp.find().to_list(None)
+			print customer_custom_meals
+			self.render('admin/meal_info.html',customer_custom_meals=customer_custom_meals,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+
+
+
+
 

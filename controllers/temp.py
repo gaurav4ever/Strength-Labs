@@ -47,7 +47,8 @@ class preorderHandler(tornado.web.RequestHandler):
 				'Tmeal_freq':'28',
 				'meal_freq':'28',
 				'time':'4 pm',
-				'location':'VIT main gate'
+				'location':'VIT main gate',
+				'specification':' '
 			}
 			yield db.order_temp.insert(order)
 			if food_name=='chicken breast' :

@@ -12,7 +12,7 @@ body{
 	margin: auto;
 	padding: 10px;
 	height: 350px;
-	background-image: url("../img/askDytilaimg3.jpg");
+	background-image: url("../img/askDytila_back.png");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	color: #FFFFFF;
@@ -183,6 +183,9 @@ ask que style
 /************************
 ans que style
 *************************/
+#ans_area{
+	border-radius: 10px;
+}
 .ansque{
 	width: 97%;
 }

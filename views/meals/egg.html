@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <link rel="icon" type="image/png" href="../static/img/favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>dytila</title>
+    <!--REQUIRED STYLE SHEETS-->
+    <!-- BOOTSTRAP CORE STYLE CSS -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLE CSS -->
+    <link href="../static/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- VEGAS STYLE CSS -->
+    <link href="../static/scripts/vegas/jquery.vegas.min.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE CSS -->
+    <link href="../static/css/style.css" rel="stylesheet" />
+    <link href="../static/css/style_meals.css" rel="stylesheet" />
+    <!-- GOOGLE FONT -->
+    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Dytila <span class="beta">BETA</span></a>
+            </div>
+            <!-- Collect the nav links for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="glow" href="/">HOME</a></li>
+                    {% if result['loggedIn'] %}
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
+                      <ul class="dropdown-menu" id="dropdown-menu">
+                        <li><a href="/profile">Profile</a></li>
+                        <!-- <li><a href="/recent_orders">Your orders</a></li> -->
+                        <!-- <li><a href="/cart">Cart</a></li>
+                        <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li> -->
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/auth/logout">Logout</a></li>
+                      </ul>
+                    </li>
+                    {% end %}
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    <!--End Navigation -->
+    <section class="food_shop" id="shop">
+    
+    <div class="meal_wrapper">
+        
+            <h3 class="text-center" id="meal_header">Dytila Non Veg Meal Packs</h3>
+             <!-- food Section -->
+
+                <section id="dytila_meal_section">
+                    <div id="content_wrapper">
+                       <div class="dytila_meal_area">
+
+                            <div class="form">
+                                <ul class="tab-group">
+                                    <li class="tab active"><a href="#bulking">Bulking</a></li>
+                                    <li class="tab"><a href="#shredding">Shredding</a></li>
+                                </ul>
+                              
+                                <div class="tab-content">
+
+                                    <div id="bulking">  
+                                    <hr class="divider" style="margin-top:30px;margin-bottom:20px;">
+                                        <div class="row">
+                                                <form method="post" action="/book">
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <!-- <input type="text" name="freq" placeholder="enter meal freq per month"> -->
+                                                    <select name="freq">
+                                                        <option disabled selected><label>enter meal freq (per month)</label></option>
+                                                        <option>28</option>
+                                                        <option>20</option>
+                                                        <option>15</option>
+                                                        <option>10</option>
+                                                        <option>8</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </center>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <!-- <input type="text" name="timing" placeholder="What time you will collect your meal"> -->
+                                                    <select name="timing">
+                                                        <option disabled selected><label>enter meal timing</label></option>
+                                                        <option>12pm</option>
+                                                        <option>2pm</option>
+                                                        <option>4pm</option>
+                                                        <option>6pm</option>
+                                                        <option>8pm</option>
+                                                        <option>Call by Mobile</option>
+                                                    </select>
+                                                </center>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <!-- <input type="text" name="location" placeholder="enter location"> -->
+                                                    <select name="location">
+                                                        <option disabled selected><label>Pick Up Location</label></option>
+                                                        <option>VIT Main Gate</option>
+                                                        <option>VIT Gate 2</option>
+                                                        <option>VIT Gate 3</option>
+                                                        <option>Slim Chance</option>
+                                                        <option>BFit</option>
+                                                        <option>Lai Lai</option>
+                                                    </select>
+                                                </center>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <input type="text" name="meal_pack" value="egg_bulking_meal" hidden>
+                                                      <input type="submit" name="submit" class="dytila_meal_button" value="Book This Meal!" id="button">
+                                                </center>
+                                                </div>
+                                                </form>
+                                            </div>
+                                    <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
+                                    <div class="row">
+                                        
+                                    {% for meal in egg_meal_bulking %}
+                                        {% if meal['type']=='dytila made' %}
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                
+                                                    <img id="dytila_made_img" src="../static/img/meals/egg/{{ meal['img'] }}" alt="chicken_breast" >
+                                                      <a href="/nonveg" class="product_links"><h4 id="meal_name">{{ meal['name'] }}</h4></a>
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                <ul class="meal_items">
+                                                    <li class="meal_items_head"><label>Items Included in this meal</label></li>
+                                                    <li>Roasted Eggs (6)</li>
+                                                    <li>Sweet Potato</li>
+                                                    <li>Brown Rice</li>
+                                                    <li>Carrot</li>
+                                                    <li>Green Beans</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <table class="meal_macros_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Macro</td>
+                                                            <td></td>
+                                                            <td>Quantity (approx.)</td>
+                                                        </tr>
+                                                    </thead>
+                                                     <tbody>
+                                                            <tr>
+                                                                <td>Protein</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['protein'] }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>carbs</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['carbs'] }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fats</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['fats'] }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Caloried</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['calories'] }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
+                                        {% end %}
+                                    {% end %}
+                                    </div>
+                                    </div>
+
+
+
+                                <div id="shredding">
+                                    <hr class="divider" style="margin-top:30px;margin-bottom:20px;">
+                                        <div class="row">
+                                                <form method="post" action="/book">
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <!-- <input type="text" name="freq" placeholder="enter meal freq per month"> -->
+                                                    <select name="freq">
+                                                        <option disabled selected><label>enter meal freq (per month)</label></option>
+                                                        <option>28</option>
+                                                        <option>20</option>
+                                                        <option>15</option>
+                                                        <option>10</option>
+                                                        <option>8</option>
+                                                        <option>5</option>
+                                                    </select>
+                                                </center>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <!-- <input type="text" name="timing" placeholder="What time you will collect your meal"> -->
+                                                    <select name="timing">
+                                                        <option disabled selected><label>enter meal timing</label></option>
+                                                        <option>12pm</option>
+                                                        <option>2pm</option>
+                                                        <option>4pm</option>
+                                                        <option>6pm</option>
+                                                        <option>8pm</option>
+                                                        <option>Call by Mobile</option>
+                                                    </select>
+                                                </center>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <!-- <input type="text" name="location" placeholder="enter location"> -->
+                                                    <select name="location">
+                                                        <option disabled selected><label>Pick Up Location</label></option>
+                                                        <option>VIT Main Gate</option>
+                                                        <option>VIT Gate 2</option>
+                                                        <option>VIT Gate 3</option>
+                                                        <option>Slim Chance</option>
+                                                        <option>BFit</option>
+                                                        <option>Lai Lai</option>
+                                                    </select>
+                                                </center>
+                                                </div>
+                                                <div class="col-md-3">
+                                                <center>
+                                                    <input type="text" name="meal_pack" value="egg_shredding_meal" hidden>
+                                                      <input type="submit" name="submit" class="dytila_meal_button" value="Book This Meal!" id="button">
+                                                </center>
+                                                </div>
+                                                </form>
+                                            </div>
+                                    <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
+                                    <div class="row">
+                                        
+                                    {% for meal in egg_meal_shredding %}
+                                        {% if meal['type']=='dytila made' %}
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                
+                                                    <img id="dytila_made_img" src="../static/img/meals/nonveg/{{ meal['img'] }}" alt="chicken_breast" >
+                                                      <a href="/nonveg" class="product_links"><h4 id="meal_name">{{ meal['name'] }}</h4></a>
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                <ul class="meal_items">
+                                                    <li class="meal_items_head"><label>Items Included in this meal</label></li>
+                                                    <li>Scrumbled eggs</li>
+                                                    <li>Sweet Potato</li>
+                                                    <li>Brown Rice</li>
+                                                    <li>Carrot</li>
+                                                    <li>Green Beans</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <table class="meal_macros_table">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Macro</td>
+                                                            <td></td>
+                                                            <td>Quantity (approx.)</td>
+                                                        </tr>
+                                                    </thead>
+                                                     <tbody>
+                                                            <tr>
+                                                                <td>Protein</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['protein'] }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>carbs</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['carbs'] }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fats</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['fats'] }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Caloried</td>
+                                                                <td>:</td>
+                                                                <td>{{ meal['calories'] }}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
+                                        {% end %}
+                                    {% end %}
+                                    </div>
+                    </div> 
+                    </div>   
+                    </div>              
+                </section>
+            <!--End food Section -->
+
+           <!--  <section id="custom_section">
+                <div id="content_wrapper">
+                    <div class="row">
+                      <h2 class="text-center">Custom Meals</h2>  
+                      <br><br>
+                    </div>
+                    <div class="row">
+                      <h3 class="text-center">No Custom Meal Plan Here <img src="../static/img/emoji/sad_face.jpg" id="emoji" style="margin:0;width:30px;height:30px;"> &nbsp;Give Us One <img src="../static/img/emoji/grinning_face.jpg" id="emoji" style="margin:0;width:30px;height:30px;"></h3>
+                      <h4 class="text-center">Ask below</h4>
+                      <center>
+                        <img id="down_img" src="../static/img/down.jpg" style="width:80px;height:80px;"> 
+                      </center>            
+                    </div>
+            </div>     -->   
+                <!-- When Custom Meals are available -->
+                <!--
+                <div id="content_wrapper">
+                <div class="row">
+                      <h2 class="text-center">Custom Meals</h2>  
+                      <br><br>
+                </div>
+                <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
+                {% for meal in custom_meals %}
+                    <div class="row">
+                            <center>
+                              <input type="submit" name="submit" class="dytila_meal_button" value="Book This Meal!" id="button">
+                            </center> 
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <img id="custom_img" src="../static/img/meals/nonveg/{{ meal['img'] }}" alt="{{ meal['img'] }}" >
+                            <br><br>
+                            <label>{{ meal['name'] }}</label>
+                            <br><br>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="meal_items">
+                                <li class="meal_items_head"><label>Items Included in this meal</label></li>
+                                <li>Roasted Chicken</li>
+                                <li>Brown Rice</li>
+                                <li>Sweet Potato</li>
+                                <li>eggs</li>
+                                <li>Carrot</li>
+                                <li>Green Beans</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <table class="meal_macros_table">
+                                <thead>
+                                    <tr>
+                                        <td>Macro</td>
+                                        <td></td>
+                                        <td>Quantity (approx.)</td>
+                                    </tr>
+                                </thead>
+                                 <tbody>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>:</td>
+                                            <td>{{ meal['protein'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>carbs</td>
+                                            <td>:</td>
+                                            <td>{{ meal['carbs'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fats</td>
+                                            <td>:</td>
+                                            <td>{{ meal['fats'] }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Caloried</td>
+                                            <td>:</td>
+                                            <td>{{ meal['calories'] }}</td>
+                                        </tr>
+                                    </tbody>
+                            </table>
+                        </div>                
+                    </div>
+                    <hr class="divider" style="margin-top:20px;margin-bottom:20px;">
+                {% end %}
+            </div> 
+                 -->
+                 <!-- END -->
+            
+
+
+            <section id="user_custom_section">
+                <h3 class="text-center">Addons on this pack</h3>
+                <h4 class="text-center">Just write any other thing you want in your meal pack, we will dot it <img src="../static/img/emoji/smile.jpg" id="emoji" style="margin:0;width:30px;height:30px;"></h4>
+                <div class="row">
+                    <div class="col-md-12">
+                         <form action="/custom_req" method="post">
+                        <textarea id="user_custom_textarea" name="user_custom_textarea" placeholder="Tell us about what meal you want?"></textarea>
+                        <br><br>
+                        <input type="text" name="meal_type" value="egg" hidden>
+                        <input type="submit" name="user_custom_section_submit_button" class="user_custom_section_submit_button" id="button" value="Submit">&nbsp;&nbsp;&nbsp;<label>You must Book this meal to customize your meal!</label>
+                      </form>
+                    </div>
+                </div>
+            </section>
+            <!-- FOR FUTURE USE -->
+            <!-- user custom section -->
+            <!-- <section id="user_custom_section">
+                <h3 class="text-center" id="user_custom_section_header">Still Not Satisfied ? <img src="../static/img/emoji/cry_face.jpg" id="emoji" style="margin:0;width:30px;height:30px;"> </h3>
+                <h4 class="text-center">Tell Us about your own Custom meal and we will get back to you <img src="../static/img/emoji/smile.jpg" id="emoji" style="margin:0;width:30px;height:30px;"></h4>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="/custom_req" method="post">
+                        <textarea id="user_custom_textarea" name="user_custom_textarea" placeholder="Tell us about what meal you want?"></textarea>
+                        <br><br>
+                        <input type="text" name="meal_type" value="egg" hidden>
+                        <input type="submit" name="user_custom_section_submit_button" class="user_custom_section_submit_button" id="button" value="Submit">
+                      </form>
+                    </div>
+                </div>
+            </section> -->
+            <!-- End user custom section -->
+
+        </div>   
+
+
+
+    </div>         
+    </section>
+    <!--footer Section -->
+    <div class="for-full-back" id="footer">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/terms_privacy"><h4 class="tncp text-center">Terms and Condition / Privacy Policy</h4></a>        
+            </div>
+            <div class="col-md-6">
+                <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Rights Reserved</h4>        
+            </div>
+        </div>
+        
+        
+    </div>
+    <!--End footer Section -->
+    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+
+    <!-- CORE JQUERY  -->
+    <script src="static/plugins/jquery-1.12.1.js"></script>
+    <!-- BOOTSTRAP CORE SCRIPT   -->
+    <script src="static/plugins/bootstrap.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://arrow.scrolltotop.com/arrow27.js"></script>
+    <script src='static/plugins/jquery-ui.min.js'></script>
+    <script src='static/js/fly_to_cart.js'></script>
+    <!-- CUSTOM SCRIPTS -->
+     <script src="../static/js/plans.js"></script>
+     <script type="text/javascript">
+          $(document).ready(function () {
+            if(window.location.href.indexOf("loggedIn=false") > -1) 
+            {
+                 alert("Please Login First!");
+            }
+            if(window.location.href.indexOf("mealBooked=true") > -1) 
+            {
+                 alert("Meal Booked :) \n Thank you!");
+            }
+            if(window.location.href.indexOf("mealordered=False") > -1) 
+            {
+                 alert("Please Book the meal first!");
+            }
+            if(window.location.href.indexOf("?success") > -1) 
+            {
+                 alert("Thank You! you will recieve a confirmation SMS soon!");
+            }
+        });
+    </script>
+</body>
+</html>

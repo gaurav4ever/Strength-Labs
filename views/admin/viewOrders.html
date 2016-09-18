@@ -26,9 +26,11 @@
         body{
             background-color: #FCDFFF;
         }
-        #freq{
-            width: 30px;
-            padding: 2px;
+        .admin_wrapper{
+            width: 100%;
+        }
+        .content_main{
+            width: 100%;
         }
     </style>
 </head>
@@ -81,18 +83,20 @@
             <div class="row tabs">
                 <div class="col-md-12" style="padding-top:0;padding-bottom:0;">
                     <ul class="options">
-                        {% if (result['user']['full_name']=='chandni' and result['user']['last_name']=='chowk')%}
+                    {% if (result['user']['full_name']=='chandni' and result['user']['last_name']=='chowk')%}
                         <li><a href="/viewOrders">Orders</a></li>
                         <li><a href="/bills">Bill</a></li>
                         <li><a href="/regular">Regular</a></li>
                         <li><a href="/add_order">New Order</a></li>
+                        <li><a href="/admin_meal_info">Meal Info</a></li>
                     {% else %}
                         <li><a href="/accounts">Accounts</a></li>
                         <li><a href="/viewOrders">Orders</a></li>
                         <li><a href="/bills">Bill</a></li>
-                        <li><a href="">Foods</a></li>
+                        <li><a href="/admin_food">Foods</a></li>
                         <li><a href="/regular">Regular</a></li>
                         <li><a href="/add_order">New Order</a></li>
+                        <li><a href="/admin_meal_info">Meal Info</a></li>
                     {% end %}
                     </ul>
                 </div>
@@ -107,7 +111,7 @@
                                              <tr>
                                                  <th>Meal Freq.</th>
                                                  <th>Meal Freq. (rem)</th>
-                                                 <th>Customer ID</th>
+                                                 <th>Specification</th>
                                                  <th>Food Name</th>
                                                  <th>User Name</th>
                                                  <th>Mobile</th>
@@ -119,9 +123,9 @@
                                          {% for meal in orders %}
                                             
                                                  <tr>
-                                                     <td id="freq">{{ meal['Tmeal_freq'] }}</td>   
-                                                     <td id="freq">{{ meal['meal_freq'] }}</td>   
-                                                     <td>{{ meal['user_id'] }}</td>
+                                                     <td style="width:30px;">{{ meal['Tmeal_freq'] }}</td>   
+                                                     <td style="width:30px;">{{ meal['meal_freq'] }}</td>   
+                                                     <td style="width:300px;">{{ meal['specification'] }}</td>
                                                      <td>{{ meal['food_name'] }}</td>
                                                      <td>{{ meal['user_name'] }}</td>
                                                      <td>{{ meal['mobile'] }}</td>

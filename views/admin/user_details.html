@@ -100,13 +100,15 @@
                         <li><a href="/bills">Bill</a></li>
                         <li><a href="/regular">Regular</a></li>
                         <li><a href="/add_order">New Order</a></li>
+                        <li><a href="/admin_meal_info">Meal Info</a></li>
                     {% else %}
                         <li><a href="/accounts">Accounts</a></li>
                         <li><a href="/viewOrders">Orders</a></li>
                         <li><a href="/bills">Bill</a></li>
-                        <li><a href="">Foods</a></li>
+                        <li><a href="/admin_food">Foods</a></li>
                         <li><a href="/regular">Regular</a></li>
                         <li><a href="/add_order">New Order</a></li>
+                        <li><a href="/admin_meal_info">Meal Info</a></li>
                     {% end %}
                     </ul>
                 </div>
@@ -140,6 +142,12 @@
                                                  <td>:</td>
                                                  <td>{{ customer_order_data['food_name'] }}
                                                  <input id="can_change" type="text" name="food" value="{{ customer_order_data['food_name'] }}" hidden></td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Specification</label></td>
+                                                 <td>:</td>
+                                                 <td>{{ customer_order_data['specification'] }}
+                                                 <input id="can_change" type="text" name="spec." value="{{ customer_order_data['specification'] }}" hidden></td>
                                              </tr>
                                              <tr>
                                                  <td><label>Email Id</label></td>
@@ -207,6 +215,12 @@
                                                  <td><label>Food Ordered</label></td>
                                                  <td>:</td>
                                                  <td><input id="can_change" type="text" name="food" value="{{ customer_order_data['food_name'] }}"></td>
+                                             </tr>
+                                             <tr>
+                                                 <td><label>Specification</label></td>
+                                                 <td>:</td>
+                                                 <td>
+                                                 <input id="can_change" type="text" name="spec." value="{{ customer_order_data['specification'] }}"></td>
                                              </tr>
                                              <tr>
                                                  <td><label>Email Id</label></td>

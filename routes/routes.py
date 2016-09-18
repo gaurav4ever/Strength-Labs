@@ -248,10 +248,45 @@ route = [
 		(
 			r"/update_regular",
 			admin.update_regularHandler
-		)
-		,
+		),
 		(
 			r"/delete_regular",
 			admin.delete_regularHandler
+		),
+		(
+			r"/meals",
+			meals.mealsHandler
+		),
+		(
+			r"/veg",
+			meals.vegHandler
+		),
+		(
+			r"/nonveg",
+			meals.nonvegHandler
+		),
+		(
+			r"/egg",
+			meals.eggHandler
+		),
+		(
+			r"/custom_req",
+			meals.custom_reqHandler
+		),
+		(
+			r"/book",
+			meals.bookHandler
+		),
+		(
+			r"/info_page",
+			home.info_pageHandler
+		),
+		(
+			r"/admin_food",
+			admin.admin_foodHandler
+		),
+		(
+			r"/admin_meal_info",
+			admin.meal_infoHandler
 		)
 ]

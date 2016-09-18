@@ -50,3 +50,13 @@ class terms_privacyHandler(tornado.web.RequestHandler):
 			self.render('termsAndPrivacy.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
 		else:
 			self.render('termsAndPrivacy.html',result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
+
+class info_pageHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+		if bool(self.get_secure_cookie('user')):
+			id = self.get_secure_cookie('user')
+			result = yield db.users.find_one({'_id':ObjectId(id)})
+			self.render('info_page.html',result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+		else:
+			self.render('info_page.html',result = dict(loggedIn=bool(self.get_secure_cookie('user'))))

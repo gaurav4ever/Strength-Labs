@@ -41,8 +41,8 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a class="glow" href="#about">ABOUT US</a></li>
-                    <li><a class="glow" href="#price-sec">PRICING</a></li>
                     <li><a class="glow" href="#contact-sec">CONTACT</a></li>
+                    <li><a class="glow" href="/askDytila">ASK DYTILA</a></li>
                     <li><a class="glow" href="/faq">FAQ</a></li>
                     <li><a class="glow" href="/team">MEET THE TEAM</a></li>
                     <li><a class="glow" href="/custom_plans">COUSTOM MEALS</a></li>
@@ -85,13 +85,13 @@
         <div class="row text-center">
             <div class="col-md-12">
                 <!-- <label style="margin-top:150px;color:#fff;font-size:100px;text-shadow: 1px 1px 20px #000;">Dytila</label><br> -->
-                <img src="../static/img/dytila_temp_logo.png" style="margin-top:150px;">
+                <img src="../static/img/dytila_logo.png" style="margin-top:150px;">
                 <h2 class="head-sub-main" style="text-shadow: 1px 1px 15px #000;">Dieting has never been this delicious</h2>
                 {% if not result['loggedIn'] %}
                     <a class="btn btn-default btn-lg" id="button" data-toggle="modal" data-target="#log">Login </a>
                 {% end %}
                 {% if result['loggedIn'] %}
-                    <a href="/macro_cal" id="button" class="btn btn-success btn-lg">Get Started</a>
+                    <a href="/info_page" id="button" class="btn btn-success btn-lg">Get Started</a>
                 {% end %}
                     <div class="modal fade" id="log">
                         <div class="modal-dialog">
@@ -189,7 +189,7 @@
                 
                 
                 
-                <a class="btn btn-danger btn-lg" id="button" href="/shop">Pre Order Now! </a>
+                <a class="btn btn-danger btn-lg" id="button" href="/meals">Order Now! </a>
                 <div class="head-last"></div>
             </div>
         </div>
@@ -326,7 +326,8 @@ through healthy meals.
                             </table>
                             <li><strong>Cash On Delivery</strong></li>
                             <li class="bottom">
-                                <a href="/shop" class="btn btn-default" id="button">Order Meals Now!</a>
+                                <h4 style="padding:0;margin:0;">Coming Soon!</h4>
+                                <!-- <a href="/meals" class="btn btn-default" id="button">Order Meals Now!</a> -->
                             </li>
                         </ul>
                     </div>
@@ -355,7 +356,7 @@ through healthy meals.
                             </table>
                             <li><strong>Monthly payment</strong></li>
                             <li class="bottom">
-                                <a href="/monthly_pan/view" class="btn btn-default" id="button">VIEW</a>
+                                <a href="/meals" class="btn btn-default" id="button">VIEW</a>
                             </li>
                         </ul>
                     </div>

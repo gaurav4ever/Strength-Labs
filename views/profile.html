@@ -94,7 +94,7 @@
                         <!-- <li><a href="/profile_address">Address</a></li> -->
                         <li><a href="/profile_settings">Profile settings</a></li>
                         <li><a href="/account_settings">Account settings</a></li>
-                        <li><a href="/my_orders">My Orders</a></li>
+                        <!-- <li><a href="/my_orders">My Orders</a></li> -->
                     </ul>
                 </div>
                 <!--End Sidebar-->
@@ -145,7 +145,7 @@
                             <h3>Your Order Details </h3>
                             {% if order['food_name']==0 %}
                                 <h4>You Have Not Order anything yet :(</h4>
-                                <h4><a href="/shop">Order Now!</a></h4>
+                                <h4><a href="/meals">Order Now!</a></h4>
                             {% else %}
                             <table class="user_order_table">
                                 <tbody>
@@ -171,7 +171,11 @@
                     </div>
             </div> 
             <div class="col-md-2">
-                <img src="../static/img/customer_img/{{ order['user_img'] }}" class="user_img">
+                {% if order['food_name']==1 %}
+                    <img src="../static/img/customer_img/{{ order['user_img'] }}" class="user_img">
+                {% else %}
+                    <img src="../static/img/customer_img/default.png" class="user_img">
+                {% end %}
             </div>  
                     <!--End content_main Section -->
             </div>
