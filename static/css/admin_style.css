@@ -1,6 +1,14 @@
 .tabs{
 	
 }
+.admin_wrapper{
+	width: 95%;
+	margin: auto;
+}
+.row{
+	width: 80%;
+	margin-left: 3px;
+}
 .tabs .col-md-12{
 	padding: 0;
 }
