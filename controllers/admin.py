@@ -35,6 +35,7 @@ class user_detailsHandler(tornado.web.RequestHandler):
 			result = yield db.users.find_one({'_id':ObjectId(id)})
 			customer_id=self.get_argument('customer_id')
 			customer_data=yield db.users.find_one({'_id':ObjectId(customer_id)})
+			print customer_data
 			customer_order_data=yield db.order_temp.find_one({'user_id':customer_id})
 				# print customer_order_data
 			self.render('admin/user_details.html',customer_data=customer_data,customer_order_data=customer_order_data,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))			

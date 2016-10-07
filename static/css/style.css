@@ -86,8 +86,14 @@ section {
 /*=================================
   DROP DOWN STYLE
 ===================================*/
-.dropdown{
+/*.dropdown{
   background-color: #D30707;
+}*/
+.dropdown li{
+  color: #d30707;
+}
+.dropdown a:hover{
+  color: #d30707;
 }
 .dropdown-menu{
   background-color: #D30707;
@@ -136,8 +142,8 @@ section {
 nav {
 	position: absolute;
 	width: 100%;
-    background: #fff;
-    z-index:99;
+  border-color: #D30707;
+  z-index:99;
 }
 .fixed {
 	position: fixed; 
@@ -147,8 +153,8 @@ nav {
 }
 
 .navbar-inverse {
-background-color: #DF0000;
-border-color: #D30707;
+  background-color: #DF0000;
+  border-color: #D30707;
 }
 
 /*=======================================

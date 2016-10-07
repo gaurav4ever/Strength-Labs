@@ -6,6 +6,10 @@ route = [
 			home.homeHandler
 		),
 		(
+			r"/req",
+			home.reqHandler
+		),
+		(
 			r"/auth/register",
 			auth.registerHandler
 		),
