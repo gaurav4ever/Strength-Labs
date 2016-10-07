@@ -492,6 +492,10 @@ min-height:300px;
 .user_order_table td{
   padding: 10px;  
 }
+.user_bills_area{
+  width: 70%;
+  margin: auto;
+}
 /*=======================================
   SIDEBAR AND CONTENT_MAIN
 ========================================*/

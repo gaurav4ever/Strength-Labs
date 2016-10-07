@@ -292,5 +292,9 @@ route = [
 		(
 			r"/admin_meal_info",
 			admin.meal_infoHandler
+		),
+		(
+			r"/user_bills",
+			profile.user_billsHandler
 		)
 ]
