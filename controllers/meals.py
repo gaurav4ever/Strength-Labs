@@ -24,7 +24,7 @@ class vegHandler(tornado.web.RequestHandler):
 			veg_meal_bulking=yield db.veg_meal.find({'program':'bukling'}).to_list(None)
 			veg_meal_shredding=yield db.veg_meal.find({'program':'shredding'}).to_list(None)
 			custom_meals=yield db.veg.find({'type':'custom'}).to_list(None)
-			self.render('meals/veg.html',custom_meals=custom_meals,veg_meal_bulking=veg_meal_bulking,veg_meal_shredding=veg_meal_shredding,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+			self.render('meals/veg.html',custom_meals=custom_meals,veg_meal_bulking=veg_meal_bulking,veg_meal_shredding=veg_meal_shredding,result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
 
 
 class nonvegHandler(tornado.web.RequestHandler):
@@ -42,7 +42,7 @@ class nonvegHandler(tornado.web.RequestHandler):
 			nonveg_meal_shredding=yield db.nonveg_meal.find({'program':'shredding'}).to_list(None)
 			custom_meals=yield db.nonveg_meal.find({'type':'custom'}).to_list(None)
 			print custom_meals
-			self.render('meals/nonveg.html',custom_meals=custom_meals,nonveg_meal_shredding=nonveg_meal_shredding,nonveg_meal_bulking=nonveg_meal_bulking,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+			self.render('meals/nonveg.html',custom_meals=custom_meals,nonveg_meal_shredding=nonveg_meal_shredding,nonveg_meal_bulking=nonveg_meal_bulking,result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
 
 
 class eggHandler(tornado.web.RequestHandler):
@@ -59,7 +59,7 @@ class eggHandler(tornado.web.RequestHandler):
 			egg_meal_bulking=yield db.egg_meal.find({'program':'bulking'}).to_list(None)
 			egg_meal_shredding=yield db.egg_meal.find({'program':'shredding'}).to_list(None)
 			custom_meals=yield db.egg_meal.find({'type':'custom'}).to_list(None)
-			self.render('meals/egg.html',custom_meals=custom_meals,egg_meal_shredding=egg_meal_shredding,egg_meal_bulking=egg_meal_bulking,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
+			self.render('meals/egg.html',custom_meals=custom_meals,egg_meal_shredding=egg_meal_shredding,egg_meal_bulking=egg_meal_bulking,result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
 
 class custom_reqHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
