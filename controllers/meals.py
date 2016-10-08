@@ -21,7 +21,7 @@ class vegHandler(tornado.web.RequestHandler):
 			custom_meals=yield db.veg_meal.find({'type':'custom'}).to_list(None)
 			self.render('meals/veg.html',custom_meals=custom_meals,veg_meal_bulking=veg_meal_bulking,veg_meal_shredding=veg_meal_shredding,result = dict(user=result,loggedIn=bool(self.get_secure_cookie('user'))))
 		else:
-			veg_meal_bulking=yield db.veg_meal.find({'program':'bukling'}).to_list(None)
+			veg_meal_bulking=yield db.veg_meal.find({'program':'bulking'}).to_list(None)
 			veg_meal_shredding=yield db.veg_meal.find({'program':'shredding'}).to_list(None)
 			custom_meals=yield db.veg.find({'type':'custom'}).to_list(None)
 			self.render('meals/veg.html',custom_meals=custom_meals,veg_meal_bulking=veg_meal_bulking,veg_meal_shredding=veg_meal_shredding,result = dict(loggedIn=bool(self.get_secure_cookie('user'))))
