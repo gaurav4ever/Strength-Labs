@@ -70,13 +70,17 @@ class reqHandler(tornado.web.RequestHandler):
 		if bool(self.get_secure_cookie('user')):
 			id = self.get_secure_cookie('user')
 			result = yield db.users.find_one({'_id':ObjectId(id)})
+			order_id=0
+			order_details=0
 			a={
 				'username':result['full_name']+" "+result['last_name'],
 				'email':result['email'],
 				'mobile':result['mobile'],
-				'password':result['password']
+				'password':result['password'],
+				'order_id':order_id,
+				'order_Detils':order_details
 			}
-			# print type(json_encode(a))
-			self.write(json.dumps(a))
+			self.write(a)
+			# self.set_header("Content-Type", "text/plain")
 		else:
-			self.render('info_page.html',result = dict(loggedIn=bool(self.get_secure_cookie('user'))))	
+			self.write("Access Denied!")
