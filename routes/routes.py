@@ -296,5 +296,17 @@ route = [
 		(
 			r"/user_bills",
 			profile.user_billsHandler
+		),
+		(
+			r"/api/accounts/([^/]+)",
+			home.apiAccountsHandler
+		),
+		(
+			r"/api/orders/([^/]+)",
+			home.apiOrdersHandler
+		),
+		(
+			r"/api/bills/([^/]+)",
+			home.apiBillsHandler
 		)
 ]
