@@ -83,17 +83,70 @@ class reqHandler(tornado.web.RequestHandler):
 class apiAccountsHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self,user_id):
-		users=yield db.users.find_one({'_id':ObjectId(user_id)})
-		b={
-			"id":str(users['_id']),
-			"name":users["full_name"]+" "+users["last_name"],
-			"password":users["password"],
-			"email":users["email"],
-			"mobile":users["mobile"]
-		}
-		# self.write(b)
-		self.write(json.dumps(b, sort_keys=True,indent=4, separators=(',', ': ')))
-		self.set_header("Content-Type", "application/json")
+		print user_id
+		url=self.request.uri
+		new_url=url.split("?")
+		if len(new_url)==1:
+			users=yield db.users.find_one({'_id':ObjectId(user_id)})
+			b={
+				"id":str(users['_id']),
+				"name":users["full_name"]+" "+users["last_name"],
+				"email":users["email"],
+				"mobile":users["mobile"]
+			}
+			# self.write(b)
+			self.write(json.dumps(b, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
+		else:
+			#for id 
+			new_url_id=new_url[0]
+			new_url_id=new_url_id.split("/")
+			new_url_id=new_url_id[3]
+			
+			#for values
+			new_url=new_url[1]
+			new_url=new_url.split("=")
+			new_url=new_url[1]
+			new_url=new_url.split(",")
+			new_url=sorted(new_url)
+			users=yield db.users.find_one({'_id':ObjectId(new_url_id)})
+			if len(new_url)==3:
+				b={
+					"id":new_url_id,
+					new_url[0]:users['email'],
+					new_url[1]:users['mobile'],
+					new_url[2]:users['full_name']+" "+users['last_name']
+				}
+			elif new_url[0]=='all':
+				b={
+					"id":str(users['_id']),
+					"name":users["full_name"]+" "+users["last_name"],
+					"password":users["password"],
+					"email":users["email"],
+					"mobile":users["mobile"]
+				}
+			elif len(new_url)==2:
+				if new_url[0]=='email' and new_url[1]=='mobile':
+					b={
+						"id":new_url_id,
+						new_url[0]:users['email'],
+						new_url[1]:users['mobile'],
+					}
+				elif new_url[0]=='email' and new_url[1]=='name':
+					b={
+						"id":new_url_id,
+						new_url[0]:users['email'],
+						new_url[1]:users['full_name']+" "+users['last_name']
+					}
+				elif new_url[0]=='mobile' and new_url[1]=='name':
+					b={
+						"id":new_url_id,
+						new_url[0]:users['mobile'],
+						new_url[1]:users['full_name']+" "+users['last_name']
+					}
+			
+			self.write(json.dumps(b, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
 
 	# def post(self,user_id):
 	# 	name=self.get_argument('user_name')
@@ -152,14 +205,18 @@ class apiBillsHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self,orderID):
 			bills=yield db.bills.find({'order_id':orderID}).to_list(None)
+			a=list()
 			for bill in bills:
 				b={
 					"name":bill['user_name'],
 					"billID":bill['bill_id']
 				}
-				# self.write(b)
-				self.write(json.dumps(b, sort_keys=True,indent=4, separators=(',', ': ')))
-				self.set_header("Content-Type", "application/json")
+				a.append(b)
+			c={
+				"bills":a
+			}
+			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
 
 	# def post(self):
 	# 	orderID=self.get_argument('user_name')
