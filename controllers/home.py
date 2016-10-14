@@ -230,6 +230,27 @@ class apiBillsHandler(tornado.web.RequestHandler):
 	# 		self.write(json.dumps(b, sort_keys=True,indent=4, separators=(',', ': ')))
 	# 		self.set_header("Content-Type", "application/json")
 
+class dytilaMainMenuHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+			a=list()
+			b1={
+				"MealName":"Dytila Veg Meals"
+			}
+			a.append(b1)
+			b2={
+				"MealName":"Dytila Non-Veg Meals"
+			}
+			a.append(b2)
+			b3={
+				"MealName":"Dytila Egg Meals"
+			}
+			a.append(b3)
+			c={
+				"menu":a
+			}
+			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
 
 
 

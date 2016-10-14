@@ -308,5 +308,9 @@ route = [
 		(
 			r"/api/bills/([^/]+)",
 			home.apiBillsHandler
+		),
+		(
+			r"/api/dytilaMainMenu",
+			home.dytilaMainMenuHandler
 		)
 ]
