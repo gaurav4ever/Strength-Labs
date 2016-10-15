@@ -312,5 +312,25 @@ route = [
 		(
 			r"/api/dytilaMainMenu",
 			home.dytilaMainMenuHandler
+		),
+		(
+			r"/api/dytilaMainMenu/veg",
+			home.dytilaMainMenuVegHandler
+		),
+		(
+			r"/api/dytilaMainMenu/nonveg",
+			home.dytilaMainMenuNonvegHandler
+		),
+		(
+			r"/api/dytilaMainMenu/egg",
+			home.dytilaMainMenuEggHandler
+		),
+		(
+			r"/api/dytilaMainMenu/shakes",
+			home.dytilaMainMenuShakesHandler
+		),
+		(
+			r"/api/dytilaMainMenu/cheat",
+			home.dytilaMainMenuCheatHandler
 		)
 ]

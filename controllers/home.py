@@ -265,9 +265,121 @@ class dytilaMainMenuHandler(tornado.web.RequestHandler):
 			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 			self.set_header("Content-Type", "application/json")
 
+class dytilaMainMenuVegHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+			veg_meals=yield db.veg_meal.find().to_list(None)
+			a=list()
+			for i in veg_meals:
+				b={
+					"name":i['name'],
+					"type":i['type'],
+					"programs":i['program'],
+					"protein":i['protein'],
+					"carbs":i['carbs'],
+					"fats":i['fats'],
+					"calories":i['calories'],
+					"img":"https://dytila.herokuapp.com/static/img/meals/pics/1.png"
+				}
+				a.append(b)
+			c={
+				"menu":a
+			}
+			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
+
+class dytilaMainMenuNonvegHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+			veg_meals=yield db.nonveg_meal.find().to_list(None)
+			a=list()
+			for i in veg_meals:
+				b={
+					"name":i['name'],
+					"type":i['type'],
+					"programs":i['program'],
+					"protein":i['protein'],
+					"carbs":i['carbs'],
+					"fats":i['fats'],
+					"calories":i['calories'],
+					"img":"https://dytila.herokuapp.com/static/img/meals/pics/1.png"
+				}
+				a.append(b)
+			c={
+				"menu":a
+			}
+			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
+
+class dytilaMainMenuEggHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+			veg_meals=yield db.egg_meal.find().to_list(None)
+			a=list()
+			for i in veg_meals:
+				b={
+					"name":i['name'],
+					"type":i['type'],
+					"programs":i['program'],
+					"protein":i['protein'],
+					"carbs":i['carbs'],
+					"fats":i['fats'],
+					"calories":i['calories'],
+					"img":"https://dytila.herokuapp.com/static/img/meals/pics/1.png"
+				}
+				a.append(b)
+			c={
+				"menu":a
+			}
+			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
+
+class dytilaMainMenuShakesHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+			# veg_meals=yield db.veg_meals.find().to_list(None)
+			# a=list()
+			# for i in veg_meals:
+			# 	b={
+			# 		"name":i['name'],
+			# 		"type":i['type'],
+			# 		"items_included":i['items included'],
+			# 		"programs":i['programs'],
+			# 		"protein":i['protein'],
+			# 		"carbs":i['carbs'],
+			# 		"fats":i['fats'],
+			# 		"calories":i['calories']
+			# 	}
+			# 	a.append(b)
+			# c={
+			# 	"menu":a
+			# }
+			self.write(json.dumps("Coming Soon", sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
 
 
-
+class dytilaMainMenuCheatHandler(tornado.web.RequestHandler):
+	@tornado.gen.coroutine
+	def get(self):
+			# veg_meals=yield db.veg_meals.find().to_list(None)
+			# a=list()
+			# for i in veg_meals:
+			# 	b={
+			# 		"name":i['name'],
+			# 		"type":i['type'],
+			# 		"items_included":i['items included'],
+			# 		"programs":i['programs'],
+			# 		"protein":i['protein'],
+			# 		"carbs":i['carbs'],
+			# 		"fats":i['fats'],
+			# 		"calories":i['calories']
+			# 	}
+			# 	a.append(b)
+			# c={
+			# 	"menu":a
+			# }
+			self.write(json.dumps("Coming Soon", sort_keys=True,indent=4, separators=(',', ': ')))
+			self.set_header("Content-Type", "application/json")
 
 
 
