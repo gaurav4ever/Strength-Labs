@@ -283,7 +283,7 @@ class dytilaMainMenuVegHandler(tornado.web.RequestHandler):
 				}
 				a.append(b)
 			c={
-				"menu":a
+				"vegMeals":a
 			}
 			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 			self.set_header("Content-Type", "application/json")
@@ -306,7 +306,7 @@ class dytilaMainMenuNonvegHandler(tornado.web.RequestHandler):
 				}
 				a.append(b)
 			c={
-				"menu":a
+				"nonVegMeals":a
 			}
 			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 			self.set_header("Content-Type", "application/json")
@@ -329,7 +329,7 @@ class dytilaMainMenuEggHandler(tornado.web.RequestHandler):
 				}
 				a.append(b)
 			c={
-				"menu":a
+				"eggMeals":a
 			}
 			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 			self.set_header("Content-Type", "application/json")
