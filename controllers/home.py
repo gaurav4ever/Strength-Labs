@@ -236,17 +236,17 @@ class dytilaMainMenuHandler(tornado.web.RequestHandler):
 			a=list()
 			b1={
 				"MealName":"Dytila Veg Meals",
-				"img":"https://drive.google.com/open?id=0B5CG3Lq8HMRwcVo5VnBxLUZma0k"
+				"img":"https://dytila.herokuapp.com/static/img/app%20pics/veg_main.png"
 			}
 			a.append(b1)
 			b2={
 				"MealName":"Dytila Non-Veg Meals",
-				"img":"https://drive.google.com/open?id=0B5CG3Lq8HMRwYjA4YnVhMF9xU28"
+				"img":"https://dytila.herokuapp.com/static/img/app%20pics/nonveg_main.png"
 			}
 			a.append(b2)
 			b3={
 				"MealName":"Dytila Egg Meals",
-				"img":"https://drive.google.com/open?id=0B5CG3Lq8HMRwQTdkQWx1LTFRVmc"
+				"img":"https://dytila.herokuapp.com/static/img/app%20pics/egg_main.png"
 			}
 			a.append(b3)
 			c={
