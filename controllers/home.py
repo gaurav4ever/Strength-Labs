@@ -249,6 +249,16 @@ class dytilaMainMenuHandler(tornado.web.RequestHandler):
 				"img":"https://dytila.herokuapp.com/static/img/app%20pics/egg_main.png"
 			}
 			a.append(b3)
+			b4={
+				"MealName":"Dytila Shakes",
+				"img":"https://dytila.herokuapp.com/static/img/app%20pics/shakes_main.png"
+			}
+			a.append(b4)
+			b5={
+				"MealName":"Dytila Cheat Meals",
+				"img":"https://dytila.herokuapp.com/static/img/app%20pics/cheat_main.png"
+			}
+			a.append(b5)
 			c={
 				"menu":a
 			}
