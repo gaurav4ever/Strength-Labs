@@ -236,17 +236,17 @@ class dytilaMainMenuHandler(tornado.web.RequestHandler):
 			a=list()
 			b1={
 				"MealName":"Dytila Veg Meals",
-				"img":"https://lh4.googleusercontent.com/1n4pGEvUb2Zu4w9b01m0-9yI0kex1bbNyi5zZnuLWIcQoFKm65KIbQ1nwgWoWRTrPaohykSUttqNaMQ=w1366-h662"
+				"img":"https://drive.google.com/open?id=0B5CG3Lq8HMRwcVo5VnBxLUZma0k"
 			}
 			a.append(b1)
 			b2={
 				"MealName":"Dytila Non-Veg Meals",
-				"img":"https://lh5.googleusercontent.com/I5l5goYtD2kQ24xbs7rCqKaBYde2x8NwrZe_pNLo4opQ4Prve5fmon8w5KlNlosF1Xnp0LJEi0RK4Sg=w1366-h662"
+				"img":"https://drive.google.com/open?id=0B5CG3Lq8HMRwYjA4YnVhMF9xU28"
 			}
 			a.append(b2)
 			b3={
 				"MealName":"Dytila Egg Meals",
-				"img":"https://lh4.googleusercontent.com/zC3cpmDHr36O3MJ7f8k6W_Rp-AgJU8--KfRYKhFwMIocsbHKgcwykcsO-QjeqhkN7tYY5oCRrl4V2Lc=w1366-h662"
+				"img":"https://drive.google.com/open?id=0B5CG3Lq8HMRwQTdkQWx1LTFRVmc"
 			}
 			a.append(b3)
 			c={
