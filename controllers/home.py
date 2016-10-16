@@ -347,7 +347,7 @@ class dytilaMainMenuShakesHandler(tornado.web.RequestHandler):
 					"carbs":i['macros']['carbohydrates'],
 					"fats":i['macros']['fats'],
 					"calories":i['macros']['calories'],
-					"program":"bulking",
+					"programs":"bulking",
 					"img":"https://dytila.herokuapp.com/static/img/smoothies/4.png"
 				}
 				a.append(b)
