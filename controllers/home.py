@@ -337,24 +337,24 @@ class dytilaMainMenuEggHandler(tornado.web.RequestHandler):
 class dytilaMainMenuShakesHandler(tornado.web.RequestHandler):
 	@tornado.gen.coroutine
 	def get(self):
-			# veg_meals=yield db.veg_meals.find().to_list(None)
-			# a=list()
-			# for i in veg_meals:
-			# 	b={
-			# 		"name":i['name'],
-			# 		"type":i['type'],
-			# 		"items_included":i['items included'],
-			# 		"programs":i['programs'],
-			# 		"protein":i['protein'],
-			# 		"carbs":i['carbs'],
-			# 		"fats":i['fats'],
-			# 		"calories":i['calories']
-			# 	}
-			# 	a.append(b)
-			# c={
-			# 	"menu":a
-			# }
-			self.write(json.dumps("Coming Soon", sort_keys=True,indent=4, separators=(',', ': ')))
+			veg_meals=yield db.food.find({'food_type':"smoothies"}).to_list(None)
+			a=list()
+			for i in veg_meals:
+				b={
+					"name":i['food_name'],
+					"type":"dytila made",
+					"protein":i['macros']['protein'],
+					"carbs":i['macros']['carbohydrates'],
+					"fats":i['macros']['fats'],
+					"calories":i['macros']['calories'],
+					"program":"bulking",
+					"img":"https://dytila.herokuapp.com/static/img/smoothies/4.png"
+				}
+				a.append(b)
+			c={
+				"shakes":a
+			}
+			self.write(json.dumps(c, sort_keys=True,indent=4, separators=(',', ': ')))
 			self.set_header("Content-Type", "application/json")
 
 
