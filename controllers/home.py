@@ -302,7 +302,7 @@ class dytilaMainMenuNonvegHandler(tornado.web.RequestHandler):
 					"carbs":i['carbs'],
 					"fats":i['fats'],
 					"calories":i['calories'],
-					"img":"https://dytila.herokuapp.com/static/img/meals/pics/1.png"
+					"img":"https://dytila.herokuapp.com/static/img/non%20veg%20food/5.png"
 				}
 				a.append(b)
 			c={
