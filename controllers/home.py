@@ -325,7 +325,7 @@ class dytilaMainMenuEggHandler(tornado.web.RequestHandler):
 					"carbs":i['carbs'],
 					"fats":i['fats'],
 					"calories":i['calories'],
-					"img":"https://dytila.herokuapp.com/static/img/meals/pics/1.png"
+					"img":"https://dytila.herokuapp.com/static/img/veg%20food%20egg/1.png"
 				}
 				a.append(b)
 			c={
