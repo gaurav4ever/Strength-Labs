@@ -124,6 +124,11 @@
         background-color: #003399;
         color: #fff;
     }
+    .sizes div{
+        margin: 10px;
+        margin-top:20px;
+        margin-bottom: 20px; 
+    }
     </style>
 </head>
 <body>
@@ -141,14 +146,24 @@
         <div class="row">
                 <div class="container">
             
+                <h2 class="text-center"><label>T-Shirt Design</label></h2><br>
                 <div class="row">
-                    <div class="col-md-4">
-                        <img src="static/img/1.png" class="black_tee">
+                    <div class="col-md-6">
+                    <center>
+                        <img src="static/img/front.png" style="padding:10px;width:80%;height:80%;border-radius:50px;">    
+                        </center>
                     </div>
-                    <div class="col-md-8">
-                                <h3>
-                            <label>T-Shirt Template</label>
-                        </h3>
+                    <div class="col-md-6">
+                    <center>
+                        <img src="static/img/back.png" style="padding:10px;width:80%;height:80%;border-radius:50px;">    
+                        </center>
+                    </div>
+                    
+                </div>
+                <hr class="divider" style="margin-top:40px;margin-bottom:40px;">
+                <div class="row">
+                    <div class="col-md-12">
+                                <center>
                         <div class="row details">
                             <div class="col-md-12">
                                 <table>
@@ -173,57 +188,67 @@
                                 </table>
                             </div>
                         </div>
+
                         <div class="row other_details">
+                        <center><h3><label>Select Size</label></h3></center>
                             <div class="col-md-12">
                                 <ul class="size_options">
-                                    <label>Size  : </label>
-                                    <li id="S" onclick="getSize(this)">S (39)</li>
-                                    <li id="M" onclick="getSize(this)">M (40)</li>
-                                    <li id="L" onclick="getSize(this)">L (42)</li>
-                                    <li id="XL" onclick="getSize(this)">XL (44)</li>
-                                    <li id="XXL" onclick="getSize(this)">XXL (46)</li>
+                                <div class="row sizes">
+                                    <div class="col-md-2 col-sm-2">
+                                        <li id="S" onclick="getSize(this)">S (39)</li>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <li id="M" onclick="getSize(this)">M (40)</li>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <li id="L" onclick="getSize(this)">L (42)</li>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <li id="XL" onclick="getSize(this)">XL (44)</li>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2">
+                                        <li id="XXL" onclick="getSize(this)">XXL (46)</li>
+                                    </div>
+                                </div>
                                 </ul>
                             </div>
+
                             <div class="row">
-                                <div class="col-md-8">
+                                <div class="col-md-4" style="padding:20px;">
+                                    <label>Price </label>: &#8377;299
+                                </div>
+                                <div class="col-md-4">
                                     <div class="price_and_other" style="padding:20px;">
-                                        <label>Price </label>: &#8377;299
-                                        <br>
                                         <label>T-Shirt are shipped only in VIT-University</label>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
+                                <center>
                                     <form action="/bynow" method="post">
                                         <input type="text" name="size" id="size" hidden>
                                         <input type="submit" class="pull-right button" name="submit" value="Check Out">
                                     </form>
+                                </center>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <hr class="divider" style="margin-top:40px;margin-bottom:40px;">
-                <h2 class="text-center"><label>T-Shirt Design</label></h2><br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <center>
-                            <img src="static/img/3.png" style="width:80%;height:80%;border-radius:50px;">
+
+                            
+                        
                         </center>
                     </div>
                 </div>
+                
+                
                 <hr class="divider" style="margin-top:40px;margin-bottom:40px;">
                 <div class="row">
                     <div class="col-md-4">
                         <img src="static/img/logo_small1.png" style="width:320px;height:120px;">
                     </div>
                     <div class="col-md-8">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <p style="font-size:18px;">
+                            Strength labs consists of a group of highly dedicated individuals that are committed to fitness.
+                            We help each other grow by sharing fitness information to the best of our knowledge. We provide you with the best quality products to optimize your fitness program. Get yourselves involved with the best and be a part of the family!
                         </p>
                     </div>
                 </div>
