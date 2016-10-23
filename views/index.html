@@ -7,508 +7,268 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Dytila</title>
-    <!--REQUIRED STYLE SHEETS-->
-    <!-- BOOTSTRAP CORE STYLE CSS -->
-    <link href="static/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLE CSS -->
-    <link href="static/css/font-awesome.min.css" rel="stylesheet" />
-    <!-- VEGAS STYLE CSS -->
-    <link href="static/plugins/vegas/jquery.vegas.min.css" rel="stylesheet" />
-    <!-- GOOGLE FONT -->
-    <link href='http://fonts.googleapis.com/css?family=Ruluko' rel='stylesheet' type='text/css' />
-    <!-- CUSTOM STYLE CSS -->
-    <link href="static/css/style.css" rel="stylesheet" /> 
-    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="static/css/normalize.css">
-    <link rel="stylesheet" href="static/css/log_style_login.css">
-    <link rel="stylesheet" href="static/css/animate.css">    
-    
+
+    <link href="static/css/bootstrap.css" rel="stylesheet" />    
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <style type="text/css">
+    body{
+      font-family: 'Muli', sans-serif;
+      background-color: #dcdcdc;
+      margin: auto;
+    }
+    .wrapper{
+      width: 80%;
+      margin: auto;
+    }
+    .head_area{
+      background-color: rgba(0,0,0,0.9);
+      width: 100%;
+      height: 70px;
+      margin: 0;
+      padding: 0;
+      
+    }
+    .row{
+      margin-top: 10px;
+      width: 100%;
+    }
+    .header{
+      color: #fff;
+    }
+    .black_tee{
+      width: 350px;
+      height: 400px;
+      border-radius: 30px;
+    }
+    .details{
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 10px;
+    }
+    .header{
+      margin: 5px;
+    }
+    .heading_text{
+      color: rgba(0,0,0,0.7);
+    }
+    .logo_img{
+      width: 250px;
+      height: 100px;
+    }
+    td{
+      padding: 5px;
+      padding-right: 12px;
+    }
+    .size_options{
+      padding: 0;
+      margin: 0;
+    }
+
+    .size_options a{
+      text-decoration: none;
+      color: #000;
+    }
+    .size_options a:hover{
+      text-decoration: none;
+    }
+    .other_details{
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 20px;
+    }
+        .wrapper{
+      width: 90%;
+      margin: auto;
+    }
+    .footer{
+        background-color: rgba(0,0,0,0.9);
+        width: 100%;
+        margin: 0;
+        padding: 20px;
+    }
+    .footer-text{
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+    .size_options li{
+      display: inline;
+      margin: 3px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 35px;
+      padding-right: 35px;
+      cursor: pointer;
+    }
+    .size_options li:hover{
+      color: #fff;
+      background-color: rgba(0,0,0,0.2);
+
+    }
+    .button{
+        margin: 15px;
+        padding: 20px;
+        background-color: #dcdcdc;
+        border:none;
+        border-radius: 10px;
+    }
+    .button:hover{
+        background-color: rgba(0,0,0,0.9);
+        color: #fff;
+    }
+    .normal{
+        background-color: #fff;
+        color: #000;
+    }
+    .onclickstyle{
+        background-color: #003399;
+        color: #fff;
+    }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="position:fixed;">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/">Dytila <span class="beta">BETA</span></a>
-            </div>
-            <!-- Collect the nav links for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="glow" href="#about">ABOUT US</a></li>
-                    <li><a class="glow" href="#contact-sec">CONTACT</a></li>
-                    <li><a class="glow" href="/askDytila">ASK DYTILA</a></li>
-                    <li><a class="glow" href="/faq">FAQ</a></li>
-                    <li><a class="glow" href="/team">MEET THE TEAM</a></li>
-                    <li><a class="glow" href="/custom_plans">COUSTOM MEALS</a></li>
-                    {% if result['loggedIn'] %}
-
-                        {% if (result['user']['full_name']=='dytila' and result['user']['last_name']=='nutrition') or (result['user']['full_name']=='chandni' and result['user']['last_name']=='chowk') %}
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
-                              <ul class="dropdown-menu" id="dropdown-menu">
-                                <li><a href="/viewOrders">View Orders</a></li>
-                                <li><a href="https://secure-falls-86328.herokuapp.com/" target="_blank">{{ result['user']['full_name']+" "+result['user']["last_name"] }} Admin</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="/auth/logout">Logout</a></li>
-                              </ul>
-                            </li>
-                        {% else %}                            
-                            <li class="dropdown">
-                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ result['user']['full_name']+" "+result['user']["last_name"] }}<span class="caret"></span></a>
-                              <ul class="dropdown-menu" id="dropdown-menu">
-                                <li><a href="/profile">Profile</a></li>
-                                <!-- <li><a href="/recent_orders">Your orders</a></li> -->
-                                <!-- <li><a href="/cart">Cart</a></li>
-                                <li><a href="/chat_with_dietitian">Chat with Dietitian</a></li> -->
-                                <li role="separator" class="divider"></li>
-                                <li><a href="/auth/logout">Logout</a></li>
-                              </ul>
-                            </li>
-                        {% end %}
-
-                    {% end %}
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
+    <nav class="navbar navbar-inverse">
+        <center>
+            <h2 class="header"><img src="static/img/logo_small2.png" style="width:280px;height:100px;"></h2>
+        </center>
     </nav>
-    <!--End Navigation -->
-
-
-    <!--Header section  -->
-    <div  id="home">
-        <div class="row text-center">
-            <div class="col-md-12">
-                <!-- <label style="margin-top:150px;color:#fff;font-size:100px;text-shadow: 1px 1px 20px #000;">Dytila</label><br> -->
-                <img src="../static/img/dytila_logo.png" style="margin-top:150px;">
-                <h2 class="head-sub-main" style="text-shadow: 1px 1px 15px #000;">Dieting has never been this delicious</h2>
-                {% if not result['loggedIn'] %}
-                    <a class="btn btn-default btn-lg" id="button" data-toggle="modal" data-target="#log">Login </a>
-                {% end %}
-                {% if result['loggedIn'] %}
-                    <a href="/info_page" id="button" class="btn btn-success btn-lg">Get Started</a>
-                {% end %}
-                    <div class="modal fade" id="log">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                     <div class="login_form form"  style="background-color:rgba(19, 35, 47, 0.6);">
-      
-                                          <ul class="tab-group">
-                                            <li class="tab"><a href="#signup">Sign Up</a></li>
-                                            <li class="tab active"><a href="#login">Log In</a></li>
-                                          </ul>
-                                          
-                                          <div class="tab-content">
-                                            <div id="login">   
-                                              <h1>Welcome Back!</h1>
-                                              
-                                              <form action="/auth/login" method="post">
-                                              
-                                                <div class="field-wrap">
-                                                <label>
-                                                  Email Address<span class="req">*</span>
-                                                </label>
-                                                <input type="email" name="email" required autocomplete="off"/>
-                                              </div>
-                                              
-                                              <div class="field-wrap">
-                                                <label>
-                                                  Password<span class="req">*</span>
-                                                </label>
-                                                <input type="password" name="password" required autocomplete="off"/>
-                                              </div>
-                                              
-                                              <p class="forgot"><a href="#">Forgot Password?</a></p>
-
-
-                                              
-                                              <button name="login" class="button button-block"/>Log In</button>
-                                              </form>
-
-                                            </div>
-                                            <div id="signup">   
-                                              <h1>Sign Up for Free</h1>
-                                              
-                                              <form action="/auth/register" method="post">
-                                              
-                                              <div class="top-row">
-                                                <div class="field-wrap">
-                                                  <label>
-                                                    First Name<span class="req">*</span>
-                                                  </label>
-                                                  <input type="text" name="fname" required autocomplete="off" />
-                                                </div>
-                                            
-                                                <div class="field-wrap">
-                                                  <label>
-                                                    Last Name<span class="req">*</span>
-                                                  </label>
-                                                  <input type="text" name="lname" autocomplete="off"/>
-                                                </div>
-                                              </div>
-
-                                              <div class="field-wrap">
-                                                <label>
-                                                  Email Address<span class="req">*</span>
-                                                </label>
-                                                <input type="email" name="email" required autocomplete="off"/>
-                                              </div>
-                                              
-                                              <div class="field-wrap">
-                                                <label>
-                                                  Set A Password<span class="req">*</span>
-                                                </label>
-                                                <input type="password" name="password" required autocomplete="off"/>
-                                              </div>
-
-                                              <div class="field-wrap">
-                                                <label>
-                                                  Mobile Number<span class="req">*</span>
-                                                </label>
-                                                <input type="text" name="mobile" required autocomplete="off"/>
-                                              </div>
-                                              
-                                              <button type="submit" name="signup" class="button button-block"/>Get Started</button>
-                                              </form>
-
-                                            </div>
-                                          </div><!-- tab-content -->
-                                          
-                                        </div> <!-- /form -->
-                                        
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                
-                
-                <a class="btn btn-danger btn-lg" id="button" href="/meals">Order Now! </a>
-                <div class="head-last"></div>
-            </div>
-        </div>
-    </div>
-    <!--End Header section  -->
-
-
-    <!--words Section-->
-    <section class="for-full-back color-white" id="about">
-        <div class="container">
-            <hr class="divider" style="margin-top:80px;margin-bottom:80px;">
-            <div class="row text-center">
-                <div class="col-md-5">
-                    <img style="height:300px;" src="../static/img/Logo/logo.png">
-                </div>
-                <div class="col-md-6 ">
-                    <h1>In search for Healthy Fitness food ?</h1>
-                    
-                    <h4>
-                        <strong>It is a fact that we are what we eat.Here at dytila, we aim to provide quality nutrition for you
-through healthy meals.
-                        </strong>
-                    </h4>
-                </div>
-
-            </div>
-
-            <hr class="divider" style="margin-top:80px;margin-bottom:80px;">
-
-            <div class="row text-center space-pad">
-                <div class="col-md-6 ">
-
-                    <div class="about-div">
-
-                        <img src="static/img/s1.png" width="70" height="60" style="z-index:1" />
-
-
-                        <h3>100% Fresh </h3>
-                        <p>
-                            We are committed to provide farm-fresh ingredients.
-                        </p>
-
-                    </div> 
-
-                </div>
-                <div class="col-md-6 ">
-
-                    <div class="about-div">
-
-                        <img src="static/img/s2.png" width="70" height="65" style="z-index:1" />
-
-
-                        <h3 style="margin-top:15px;"> Quick Delivery</h3>
-                        <p>
-                           Name your gym and we are there! Ready to provide you, your natural post workout
-                        </p>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <section class="for-full-back " id="dytila-one">
-        <div class="container">
-
-            <div class="row text-center for-dytila-one">
-                <div class="col-md-6 ">
-                    <h3 style="color:#FFF;">Vegetarian Food (egg included)</h3>
-                    <h4>
-                        <strong style="text-shadow: 1px 1px 15px #000;">Building muscles relying on veggies possible? Absolutely! No compromises with macros! Including and exclusion of eggs in your meal available.
-                        </strong>
-                    </h4>
-                </div>
-                <div class="col-md-6 ">
-                    <h3 style="color:#FFF;">Non-Vegetarian Food</h3>
-                    <h4>
-                        <strong style="text-shadow: 1px 1px 15px #000;">High quality animal derivatives/chicken with high protein content! Foodgasm as post workout served!
-                        </strong>
-                    </h4>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-    <!--./dytila one-->
-    <!--End words Section-->
 
 
 
+    <div class="wrapper">
 
-    <!-- Pricing Section -->
-
-    <section class="for-full-back color-white " id="price-sec">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1>dytila Food Options</h1>
-                    <h4 style="color:#000;">
-                        <strong>Two different plans for you.
-                        </strong>
-                    </h4>
-                </div>
-
-            </div>
-            <div class="row text-center">
-
-               <div class="col-md-1">
-               </div>
-
-                    <div class="col-md-4">
-                        <ul class="plan">
-                            <li class="">Regular Plan</li>
-                            <li class="main-price">Price depends</li>
-                            <table class="plan_table" cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <td><img class="tick_cross" src="static/img/cross.png"></td>
-                                        <td>4 Different Meal Plans</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="tick_cross" src="static/img/cross.png"></td>
-                                        <td>Timing System</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="tick_cross" src="static/img/cross.png"></td>
-                                        <td>Free smoothie at the end</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <li><strong>Cash On Delivery</strong></li>
-                            <li class="bottom">
-                                <h4 style="padding:0;margin:0;">Coming Soon!</h4>
-                                <!-- <a href="/meals" class="btn btn-default" id="button">Order Meals Now!</a> -->
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="plan">
-                            <li class="">Monthly Plan</li>
-                            <li class="main-price">4000 Rupees</li>
-                            <table class="plan_table" cellspacing="0">
-                                <tbody>
-                                    <tr>
-                                        <td><img class="tick_cross" src="static/img/tick.jpg"></td>
-                                        <td>4 Different Meal Plans</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="tick_cross" src="static/img/tick.jpg"></td>
-                                        <td>Timing System</td>
-                                    </tr>
-                                    <tr>
-                                        <td><img class="tick_cross" src="static/img/tick.jpg"></td>
-                                        <td>Free smoothie at the end</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <li><strong>Monthly payment</strong></li>
-                            <li class="bottom">
-                                <a href="/meals" class="btn btn-default" id="button">VIEW</a>
-                            </li>
-                        </ul>
-                    </div>
-                <div  class="col-md-1">
-                    
-                </div>
-            </div>
-            <hr class="divider" style="margin-top:40px;margin-bottom:40px;">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center">Our Partners</h1>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="../static/img/chandniChowk.png">    
-                        </div>
-                        <div class="col-md-6">
-                            <center>
-                            <p style="margin-top:70px;">
-                            <a href="https://msg91.com/startups/?utm_source=startup-banner"><img src="https://msg91.com/images/startups/msg91Badge.png" width="120" height="90" title="MSG91 - SMS for Startups" alt="Bulk SMS - MSG91"></a>
-                            </p>
-                            </center>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="for-full-back for-dytila-two" id="dytila-two">
-        <div class="container">
-
-            <div class="row text-center">
-                <div class="col-md-8 col-md-offset-2 ">
-                    <label style="margin-top:70px;">Why dytila</label>
-                    <h4>
-                        <strong style="text-shadow: 3px 3px 20px #000;">It is a fact that we are what we eat. Here at dytilla, we aim to provide quality nutrition for you
-                        through healthy meals. The macros in our selection have been meticulously calculated to target your fitness goals. Moreover, we aim to give your taste buds a tantalising experience.
-                        </strong>
-                    </h4>
-                </div>
-
-            </div>
-
-
-        </div>
-    </section>
-    <!--./dytila two-->
-    <!--End Pricing Section -->
-    
-    
-
-    <!-- Contact Section -->
-    <section class="for-full-back color-white " id="contact-sec">
-        <div class="container">
-
-
-            <div class="row">
-                <div class="col-md-5 contact-cls">
-                    <h3>CONTACT US</h3>
-                    <div>
-                        <span><i class="fa fa-home" style="margin-right:10px;"></i>&nbsp;Address: VIT University</span>
-                        <br />
-                        <span><i class="fa fa-phone" style="margin-right:10px;"></i>&nbsp;Phone: +91- 9585896662</span>
-                        <br />
-                        <span><i class="fa fa-envelope-o" style="margin-right:6px;"></i>&nbsp;E-Mail: dytilanutrition@gmail.com</span>
-                        <br />
-                    </div>
-                    <br />
-                    <div id="social-icon">
-                        <a href="https://www.facebook.com/dytilameals/"><img class="social_icons" src="static/img/fb.png" target="_blank" /></a>
-                        <a href="https://www.instagram.com/dytila_nutrition/"><img class="social_icons" src="static/img/insta.png" target="_blank" /></a>
-                        
-                    </div>
-                </div>
-                <div class="col-md-7">
-                    <h2>Have Queries? Ask US</h2>
-                    <p>
-                        Need help? We are here for you give us feedback by sharing your story! You can get a real time experience by sharing your story...
-                    </p>
-                    <form method="post" action="/req_msg">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Name" name="q_name">
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" required="required" placeholder="Email address" name="q_email">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <textarea name="q_message" id="message" required="required" class="form-control" rows="3" placeholder="Message"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-default">Submit Request</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!--End Contact Section -->
-    <!--footer Section -->
-    <div class="for-full-back" id="footer">
         <div class="row">
-            <div class="col-md-6">
-                <a href="/terms_privacy"><h4 class="tncp text-center">Terms and Condition / Privacy Policy</h4></a>        
+                <div class="container">
+            
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="static/img/1.png" class="black_tee">
+                    </div>
+                    <div class="col-md-8">
+                                <h3>
+                            <label>T-Shirt Template</label>
+                        </h3>
+                        <div class="row details">
+                            <div class="col-md-12">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="heading_text"><label>Fabric</label></td>
+                                            <td>100% Cotton</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="heading_text"><label>Sleeves</label></td>
+                                            <td>Half Sleeves</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="heading_text"><label>Color</label></td>
+                                            <td>Black</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="heading_text"><label>Neck</label></td>
+                                            <td>Round Neck</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row other_details">
+                            <div class="col-md-12">
+                                <ul class="size_options">
+                                    <label>Size  : </label>
+                                    <li id="S" onclick="getSize(this)">S (39)</li>
+                                    <li id="M" onclick="getSize(this)">M (40)</li>
+                                    <li id="L" onclick="getSize(this)">L (42)</li>
+                                    <li id="XL" onclick="getSize(this)">XL (44)</li>
+                                    <li id="XXL" onclick="getSize(this)">XXL (46)</li>
+                                </ul>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="price_and_other" style="padding:20px;">
+                                        <label>Price </label>: &#8377;299
+                                        <br>
+                                        <label>T-Shirt are shipped only in VIT-University</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <form action="/bynow" method="post">
+                                        <input type="text" name="size" id="size" hidden>
+                                        <input type="submit" class="pull-right button" name="submit" value="Check Out">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="divider" style="margin-top:40px;margin-bottom:40px;">
+                <h2 class="text-center"><label>T-Shirt Design</label></h2><br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <center>
+                            <img src="static/img/3.png" style="width:80%;height:80%;border-radius:50px;">
+                        </center>
+                    </div>
+                </div>
+                <hr class="divider" style="margin-top:40px;margin-bottom:40px;">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="static/img/logo_small1.png" style="width:320px;height:120px;">
+                    </div>
+                    <div class="col-md-8">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </div>
+                <hr class="divider" style="margin-top:80px;margin-bottom:80px;">
             </div>
-            <div class="col-md-6">
-                <h4 style="margin:0;padding:0;" class="text-center">&copy; 2016 dytila | All Rights Reserved</h4>        
-            </div>
-        </div>    
+                
+
+            </div> 
     </div>
-    <!--End footer Section -->
-    <!-- JAVASCRIPT FILES PLACED AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY  -->
+
+    <div class="footer">
+        <h3 class="text-center footer-text"><label>Strength Labs</label> Powered By <label>Dytila</label></h3>
+    </div>
+
+    
     <script src="static/plugins/jquery-1.10.2.js"></script>
-    <!-- BOOTSTRAP CORE SCRIPT   -->
-    <script src="static/plugins/bootstrap.js"></script>
-    <!-- VEGAS SLIDESHOW SCRIPTS -->
-    <script src="static/plugins/vegas/jquery.vegas.min.js"></script>
-    <script src="static/plugins/jquery.desifood-1.1.3.js"></script>
-    <!-- CUSTOM SCRIPTS -->
-    <script src="static/js/custom.js"></script>
-    
-    
+    <script src="static/plugins/bootstrap.js"></script>    
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
         <script src="static/js/index.js"></script>   
         <script type="text/javascript">
+          function getSize(x){
+            $("li").removeClass("onclickstyle");
+            document.getElementById(x.id).className="onclickstyle";
+            if(x.id=="S"){
+                document.getElementById("size").value="S";
+            }
+            else if(x.id=="M"){
+                document.getElementById("size").value="M";
+            }
+            else if(x.id=="L"){
+                document.getElementById("size").value="L";
+            }
+            else if(x.id=="XL"){
+                document.getElementById("size").value="XL";
+            }
+            else if(x.id=="XXL"){
+                document.getElementById("size").value="XXL";
+            }
+          }
+        </script>
+        <script type="text/javascript">
           $(document).ready(function () {
-            if(window.location.href.indexOf("false") > -1) 
+            if(window.location.href.indexOf("?ordered=true") > -1) 
             {
-                 alert("Email or Password is incorrect!");
-            }
-            if(window.location.href.indexOf("?message=true") > -1) 
-            {
-                 alert("Your query has been successfully submitted. Thank you!");
-            }
-            if(window.location.href.indexOf("?alreadyReg=true")>-1){
-                alert("account already registered");
+                 alert("Thank you For your Order :)");
             }
         });
         </script>
